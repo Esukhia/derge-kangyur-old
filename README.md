@@ -27,6 +27,10 @@ The ང། don't have a tsek between the ང and the །.
 
 In case you find errors, kindly to do a pull request with corrections.
 
+## Technical details
+
+The files are UTF16-LE with BOM. `git` doesn't recognize them as text but you can still diff them with the trick exposed [here](https://stackoverflow.com/a/1300928/2560906).
+
 # License
 
 This work is a mechanical reproduction of a Public Domain work, and as such is also in the Public Domain.
