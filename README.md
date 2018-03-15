@@ -21,7 +21,7 @@ The texts contain the following tags:
 [1b] _[Page and folio markers]_
 [1b.1] _[Page and folio markers.line number]_
 (ཧ་) _correction of a potential error_
-[འོ་] _correction of a potential error_
+[རྔེའུ་] _signals very obvious potential error_
 
 The ང། don't have a tsek between the ང and the །.
 
