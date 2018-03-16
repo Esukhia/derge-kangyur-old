@@ -16,16 +16,22 @@ For more information on the workflow please refer to:
 
 ## Format
 
-The texts contain the following tags:
+The texts contain the following structural markup:
 
-[1b] _[Page and folio markers]_
-[1b.1] _[Page and folio markers.line number]_
-(ཧ་) _correction of a potential error_
-[རྔེའུ་] _signals very obvious potential error_
+* [1b] _[Page and folio markers]_
+* [1b.1] _[Page and folio markers.line number]_
 
-The ང། don't have a tsek between the ང and the །.
+They also contain a few error suggestions noted as example. It is far from an exhausted list of the issues found in the original, the staff was actually discouraged to add these.
 
-In case you find errors, kindly to do a pull request with corrections.
+* (མི,མེ) _potential error, correction suggestion (མཁའ་ལ་(མི,མེ)་ཏོག་དམར་པོ)_
+
+* [རྔེའུ་] _signals obvious errors (རྔེའུ་ for རྡེའུ་), highly suspicious spellings (མཎྜལ་ཐིག་[ལ]་ལྔ་པ་ལ།), un-transcribable characters (གྷ་ཀྷཱ་ཀྤ་ཀྻཱ་ཀྼ་ཀླ་[]ཀྷཾ་ཀྷཿ) _
+
+* The ང། don't have a tsek between the ང and the །.
+
+## Feedback
+
+The files are on github hoping they'll improve, don't hesitate to signal errors with a pull request!
 
 ## Technical details
 
