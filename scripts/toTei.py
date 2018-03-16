@@ -67,6 +67,8 @@ def parse_one_line(line, filelinenum, state, outf, options):
             text = re.sub(r"\(([^\),]*),([^\),]*)\)", r"\1", text)
         else:
             text = re.sub(r"\(([^\),]*),([^\),]*)\)", r"\1", text)
+        if text.find('(') != -1 or text.find(')') != -1:
+            print("error on line "+str(filelinenum)+", spurious parenthesis")
     if newpage:
         outf.write('</tei:p><tei:p n="'+str(pagenum)+pageside+'">')
     outf.write('<tei:milestone unit="line" n="'+str(linenum)+'"/>'+text)
@@ -86,4 +88,8 @@ if __name__ == '__main__':
         "fix_errors": False,
         "keep_errors_indications": False
     }
-    parse_one_file('../derge-kangyur-tags/080 FINAL tags.txt', '../output/test.xml', options)
+    for i in range(1, 102):
+        num = '{0:03d}'.format(i)
+        infilename = '../derge-kangyur-tags/'+num+' FINAL tags.txt'
+        print("transforming "+infilename)
+        parse_one_file(infilename, '../output/'+num+'.xml', options)
