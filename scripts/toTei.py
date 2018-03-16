@@ -64,7 +64,7 @@ def parse_one_line(line, filelinenum, state, outf, options):
         if 'keep_errors_indications' not in options or not options['keep_errors_indications']:
             text = text.replace('[', '').replace(']', '')
         if 'fix_errors' not in options or not options['fix_errors']:
-            text = re.sub(r"\(([^\),]*),([^\),]*)\)", r"\1", text)
+            text = re.sub(r"\(([^\),]*),([^\),]*)\)", r"\2", text)
         else:
             text = re.sub(r"\(([^\),]*),([^\),]*)\)", r"\1", text)
         if text.find('(') != -1 or text.find(')') != -1:
@@ -93,3 +93,5 @@ if __name__ == '__main__':
         infilename = '../derge-kangyur-tags/'+num+' FINAL tags.txt'
         print("transforming "+infilename)
         parse_one_file(infilename, '../output/'+num+'.xml', options)
+    # text = "ན་ཏན་(བརྫོད་‚བརྗོད་)པར་མཛད་པར་བཞེད"
+    # print(re.sub(r"\(([^\),]*),([^\),]*)\)", r"\2", text))
