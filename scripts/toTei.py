@@ -103,6 +103,6 @@ if __name__ == '__main__':
         num = '{0:03d}'.format(i)
         infilename = '../derge-kangyur-tags/'+num+' FINAL tags.txt'
         print("transforming "+infilename)
-        parse_one_file(infilename, '../output/'+num+'.xml', options)
+        parse_one_file(infilename, './output/'+num+'.xml', options)
     # text = "ན་ཏན་(བརྫོད་‚བརྗོད་)པར་མཛད་པར་བཞེད"
     # print(re.sub(r"\(([^\),]*),([^\),]*)\)", r"\2", text))
