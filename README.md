@@ -25,6 +25,8 @@ They also contain a few error suggestions noted as example. It is far from an ex
 * **[X]** signals obvious errors highly suspicious spellings (ex: `མཎྜལ་ཐིག་[ལ]་ལྔ་པ་ལ།`), or un-transcribable characters
 * **#** signals an unreadable graphical unit
 
+The Unicode is in [NFD](http://unicode.org/reports/tr15/), and oM is rendered as `\u0F68\u0F7C\u0F7E` (`ཨོཾ`) and not `\u0F00` (`ༀ`).
+
 ## Technical details
 
 The files are UTF16-LE with BOM. `git` doesn't recognize them as text but you can still diff them with the trick exposed [here](https://stackoverflow.com/a/1300928/2560906).
