@@ -25,7 +25,7 @@ They also contain a few error suggestions noted as example. It is far from an ex
 * **[X]** signals obvious errors highly suspicious spellings (ex: `མཎྜལཐིག[ལ]ལྔཔལ།`), or un-transcribable characters
 * **#** signals an unreadable graphical unit
 
-The ང། don't always have a tsek between the ང and the །
+The Unicode is in [NFD](http://unicode.org/reports/tr15/), and oM is rendered as `\u0F68\u0F7C\u0F7E` (`ཨོཾ`) and not `\u0F00` (`ༀ`).
 
 ## Technical details
 
