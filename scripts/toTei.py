@@ -3,6 +3,17 @@ import re
 
 PAREN_RE = re.compile(r"\(([^\),]*),([^\),]*)\)")
 
+def parrepl(match, mode, filelinenum):
+    first = match.group(1)
+    sec = match.group(2)
+    if (len(first) > 0 and len(sec) > 0 and (
+            (first[0] == '་' and sec[0] != '་') or 
+            (sec[0] == '་' and first[0] != '་') or
+            (first[-1] == '་' and sec[-1] != '་') or
+            (sec[-1] == '་' and first[-1] != '་'))):
+        print("error on line "+str(filelinenum)+" tsheg not matching in parenthesis")
+    return mode == 'first' and first or sec
+
 def parse_one_line(line, filelinenum, state, outf, options):
     if filelinenum == 1:
         outf.write("title: "+line)
@@ -64,9 +75,9 @@ def parse_one_line(line, filelinenum, state, outf, options):
         if 'keep_errors_indications' not in options or not options['keep_errors_indications']:
             text = text.replace('[', '').replace(']', '')
         if 'fix_errors' not in options or not options['fix_errors']:
-            text = re.sub(r"\(([^\),]*),([^\),]*)\)", r"\2", text)
+            text = re.sub(r"\(([^\),]*),([^\),]*)\)", lambda m: parrepl(m, 'second', filelinenum), text)
         else:
-            text = re.sub(r"\(([^\),]*),([^\),]*)\)", r"\1", text)
+            text = re.sub(r"\(([^\),]*),([^\),]*)\)", lambda m: parrepl(m, 'second', filelinenum), text)
         if text.find('(') != -1 or text.find(')') != -1:
             print("error on line "+str(filelinenum)+", spurious parenthesis")
     if newpage:
