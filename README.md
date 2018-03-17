@@ -23,6 +23,7 @@ They also contain a few error suggestions noted as example. It is far from an ex
 * **(X,Y)** is _(potential error, correction suggestion)_ , example: `མཁའ་ལ་(མི,མེ)་ཏོག་དམར་པོ`
 
 * **[X]** signals obvious errors highly suspicious spellings (ex: `མཎྜལ་ཐིག་[ལ]་ལྔ་པ་ལ།`), or un-transcribable characters
+* **#** signals an unreadable graphical unit
 
 The ང། don't always have a tsek between the ང and the །
 
