@@ -1,4 +1,5 @@
 import re
+import os
 
 
 PAREN_RE = re.compile(r"\(([^\),]*),([^\),]*)\)")
@@ -103,6 +104,7 @@ if __name__ == '__main__':
         num = '{0:03d}'.format(i)
         infilename = '../derge-kangyur-tags/'+num+' FINAL tags.txt'
         print("transforming "+infilename)
+        outdir = os.makedirs('./output/', exist_ok=True)
         parse_one_file(infilename, './output/'+num+'.xml', options)
     # text = "ན་ཏན་(བརྫོད་‚བརྗོད་)པར་མཛད་པར་བཞེད"
     # print(re.sub(r"\(([^\),]*),([^\),]*)\)", r"\2", text))
