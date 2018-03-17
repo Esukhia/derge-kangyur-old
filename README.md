@@ -25,8 +25,6 @@ They also contain a few error suggestions noted as example. It is far from an ex
 * **[X]** signals obvious errors highly suspicious spellings (ex: `མཎྜལ་ཐིག་[ལ]་ལྔ་པ་ལ།`), or un-transcribable characters
 * **#** signals an unreadable graphical unit
 
-The ང། don't always have a tsek between the ང and the །
-
 ## Technical details
 
 The files are UTF16-LE with BOM. `git` doesn't recognize them as text but you can still diff them with the trick exposed [here](https://stackoverflow.com/a/1300928/2560906).
