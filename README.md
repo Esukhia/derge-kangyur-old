@@ -2,9 +2,6 @@
 
 Digital Derge Kangyur prepared by Esukhia in 2013 for [84000](http://84000.co/) and [SOAS](https://www.soas.ac.uk/) under the supervision of [TBRC](https://www.tbrc.org/) and [UVA](http://www.virginia.edu/).
 
-## Background
-...
-
 ## Methodology
 This digital version of the Derge Kangyur, or eKangyur as it is called on tbrc.org, is intended as an exact representation of the Derge Kangyur edition help by the Library of Congress ([available on BDRC](https://www.tbrc.org/#!rid=W4CZ5369)). As an exact representation it preserved the likes of spelling mistakes, carving mistakes, archaic spellings and mistakes caused by wood-block damage.
 
@@ -16,26 +13,26 @@ For more information on the workflow please refer to:
 
 ## Format
 
-The texts contain the following structural markup:
+The texts contain the following structural markup at beginning of lines (except the first one):
 
-* [1b] _[Page and folio markers]_
-* [1b.1] _[Page and folio markers.line number]_
+* **[1b]** is _[Page and folio markers]_
+* **[1b.1]** is _[Page and folio markers.line number]_
 
 They also contain a few error suggestions noted as example. It is far from an exhausted list of the issues found in the original, the staff was actually discouraged to add these.
 
-* (མི,མེ) _potential error, correction suggestion (མཁའ་ལ་(མི,མེ)་ཏོག་དམར་པོ)_
+* **(X,Y)** is _(potential error, correction suggestion)_ , example: `མཁའ་ལ་(མི,མེ)་ཏོག་དམར་པོ`
 
-* [རྔེའུ་] _signals obvious errors (རྔེའུ་ for རྡེའུ་), highly suspicious spellings (མཎྜལ་ཐིག་[ལ]་ལྔ་པ་ལ།), un-transcribable characters (གྷ་ཀྷཱ་ཀྤ་ཀྻཱ་ཀྼ་ཀླ་[]ཀྷཾ་ཀྷཿ) _
+* **[X]** signals obvious errors highly suspicious spellings (ex: `མཎྜལ་ཐིག་[ལ]་ལྔ་པ་ལ།`), or un-transcribable characters
 
-* The ང། don't have a tsek between the ང and the །.
-
-## Feedback
-
-The files are on github hoping they'll improve, don't hesitate to signal errors with a pull request!
+The ང། don't always have a tsek between the ང and the །
 
 ## Technical details
 
 The files are UTF16-LE with BOM. `git` doesn't recognize them as text but you can still diff them with the trick exposed [here](https://stackoverflow.com/a/1300928/2560906).
+
+# Feedback
+
+The files are on Github hoping they'll improve, don't hesitate to signal errors with a pull request!
 
 # License
 
