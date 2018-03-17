@@ -20,9 +20,9 @@ The texts contain the following structural markup at beginning of lines (except 
 
 They also contain a few error suggestions noted as example. It is far from an exhausted list of the issues found in the original, the staff was actually discouraged to add these.
 
-* **(X,Y)** is _(potential error, correction suggestion)_ , example: `མཁའལ(མི,མེ)ཏོགདམརཔོ`
+* **(X,Y)** is _(potential error, correction suggestion)_ , example: `མཁའ་ལ་(མི་,མེ་)ཏོག་དམར་པོ་`
 
-* **[X]** signals obvious errors highly suspicious spellings (ex: `མཎྜལཐིག[ལ]ལྔཔལ།`), or un-transcribable characters
+* **[X]** signals obvious errors or highly suspicious spellings (ex: `མཎྜལ་ཐིག་[ལ་]ལྔ་པ་ལ།`), or un-transcribable characters
 * **#** signals an unreadable graphical unit
 
 The Unicode is in [NFD](http://unicode.org/reports/tr15/), and oM is rendered as `\u0F68\u0F7C\u0F7E` (`ཨོཾ`) and not `\u0F00` (`ༀ`).
