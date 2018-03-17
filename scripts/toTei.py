@@ -106,5 +106,5 @@ if __name__ == '__main__':
         print("transforming "+infilename)
         os.makedirs('./output/', exist_ok=True)
         parse_one_file(infilename, './output/'+num+'.xml', options)
-    # text = "ན་ཏན་(བརྫོད་‚བརྗོད་)པར་མཛད་པར་བཞེད"
+    # text = "ན་ཏན་(བརྫོད་‚བརྗོད)པར་མཛད་པར་བཞེད"
     # print(re.sub(r"\(([^\),]*),([^\),]*)\)", r"\2", text))
