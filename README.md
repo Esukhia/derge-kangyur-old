@@ -3,7 +3,8 @@
 Digital Derge Kangyur prepared by Esukhia in 2013 for [84000](http://84000.co/) and [SOAS](https://www.soas.ac.uk/) under the supervision of [TBRC](https://www.tbrc.org/) and [UVA](http://www.virginia.edu/).
 
 ## Methodology
-This digital version of the Derge Kangyur, or eKangyur as it is called on tbrc.org, is intended as an exact representation of the Derge Kangyur edition help by the Library of Congress ([available on BDRC](https://www.tbrc.org/#!rid=W4CZ5369)). As an exact representation it preserved the likes of spelling mistakes, carving mistakes, archaic spellings and mistakes caused by wood-block damage.
+
+This digital version of the Derge Kangyur, or eKangyur as it is called on BDRC, is intended as an exact representation of the Derge Kangyur edition help by the Library of Congress ([available on BDRC](https://www.tbrc.org/#!rid=W4CZ5369)). As an exact representation it preserved the likes of spelling mistakes, carving mistakes, archaic spellings and mistakes caused by wood-block damage.
 
 This digital version isn't a new manual input but rather the result of comparing 4 different previous digital version. This process was chosen in order to minimize the creation of new errors, but of course you might still find some.
 
@@ -18,6 +19,8 @@ The texts contain the following structural markup at beginning of lines (except 
 * **[1b]** is _[Page and folio markers]_
 * **[1b.1]** is _[Page and folio markers.line number]_
 
+We follow the page numbers indicated in the original, this means that sometimes the page numbers go back to 1a (ex: vol. 31 after p. 256). Pages numbers that appear twice in a row are indicated with an `x`, example in volume 102: `[355xa]`.
+
 They also contain a few error suggestions noted as example. It is far from an exhausted list of the issues found in the original, the staff was actually discouraged to add these.
 
 * **(X,Y)** is _(potential error, correction suggestion)_ , example: `མཁའ་ལ་(མི་,མེ་)ཏོག་དམར་པོ་`
@@ -26,6 +29,12 @@ They also contain a few error suggestions noted as example. It is far from an ex
 * **#** signals an unreadable graphical unit
 
 The Unicode is in [NFD](http://unicode.org/reports/tr15/), and oM is rendered as `\u0F68\u0F7C\u0F7E` (`ཨོཾ`) and not `\u0F00` (`ༀ`).
+
+The end of lines sometimes are preceded by a space character (when they end with a shad) so that the result of appending all the lines content is useabletext is correct.
+
+## Volume numbers
+
+Each physical volume is one file. We follow the volume order of the Parphud edition ; in the LoC edition, the main difference is that vol. 102 (of Parphud) is before vol. 100 (of Parphud).
 
 ## Technical details
 
