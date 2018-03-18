@@ -28,6 +28,8 @@ They also contain a few error suggestions noted as example. It is far from an ex
 * **[X]** signals obvious errors or highly suspicious spellings (ex: `མཎྜལ་ཐིག་[ལ་]ལྔ་པ་ལ།`), or un-transcribable characters
 * **#** signals an unreadable graphical unit
 
+The files are UTF16-LE with BOM. `git` doesn't recognize them as text but you can still diff them with the trick exposed [here](https://stackoverflow.com/a/1300928/2560906).
+
 The Unicode is in [NFD](http://unicode.org/reports/tr15/), and oM is rendered as `\u0F68\u0F7C\u0F7E` (`ཨོཾ`) and not `\u0F00` (`ༀ`).
 
 The end of lines sometimes are preceded by a space character (when they end with a shad) so that the result of appending all the lines content is useabletext is correct.
@@ -36,13 +38,13 @@ The end of lines sometimes are preceded by a space character (when they end with
 
 Each physical volume is one file. We follow the volume order of the Parphud edition ; in the LoC edition, the main difference is that vol. 102 (of Parphud) is before vol. 100 (of Parphud).
 
-## Completion
+## Completion status
 
 All volumes should be complete except vol 102 in which 53 pages are missing (starting from [this image](https://www.tbrc.org/browser/ImageService?work=W4CZ5369&igroup=I1KG9226&image=890&first=1&last=943&fetchimg=yes)).
 
-## Technical details
+## TEI Export
 
-The files are UTF16-LE with BOM. `git` doesn't recognize them as text but you can still diff them with the trick exposed [here](https://stackoverflow.com/a/1300928/2560906).
+You can find a script in the `scripts/` directory to validate the files and export into a TEI format that can be ingested by BDRC. Other exports should be straightforward taking this script as a template.
 
 # Feedback
 
