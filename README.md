@@ -36,6 +36,10 @@ The end of lines sometimes are preceded by a space character (when they end with
 
 Each physical volume is one file. We follow the volume order of the Parphud edition ; in the LoC edition, the main difference is that vol. 102 (of Parphud) is before vol. 100 (of Parphud).
 
+## Completion
+
+All volumes should be complete except vol 102 in which 53 pages are missing (starting from [this image](https://www.tbrc.org/browser/ImageService?work=W4CZ5369&igroup=I1KG9226&image=890&first=1&last=943&fetchimg=yes)).
+
 ## Technical details
 
 The files are UTF16-LE with BOM. `git` doesn't recognize them as text but you can still diff them with the trick exposed [here](https://stackoverflow.com/a/1300928/2560906).
