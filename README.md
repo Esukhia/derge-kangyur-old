@@ -44,7 +44,7 @@ All volumes should be complete except vol 102 in which 53 pages are missing (sta
 
 ## TEI Export
 
-You can find a script in the `scripts/` directory to validate the files and export into a TEI format that can be ingested by BDRC. Other exports should be straightforward taking this script as a template.
+You can find a script in the `scripts/` directory to validate the files and export into a TEI format that can be ingested by BDRC. Other exports should be straightforward taking this script as a template. Note that it exports the volumes in the LoC order.
 
 # Feedback
 

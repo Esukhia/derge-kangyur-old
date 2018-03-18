@@ -99,7 +99,7 @@ def parse_one_line(line, filelinenum, state, outf, volnum, options):
             isBis = True
             pagenumstr = pagelinenum[:-2]
         try:
-            pagenum = int(pagelinenum[:-1])
+            pagenum = int(pagenumstr)
         except ValueError:
             print("error on line "+str(filelinenum)+" cannot convert page to integer")
             return
@@ -173,9 +173,14 @@ if __name__ == '__main__':
         "fix_errors": False,
         "keep_errors_indications": False
     }
-    for volnum in range(1, 102):
+    #parse_one_file('../derge-kangyur-tags/102-tagged.txt', '/tmp/test.xml', 1, options)
+    volMappingForExport = {100: 101, 101: 102, 102: 100}
+    for volnum in range(1, 103):
         volnumstr = '{0:03d}'.format(volnum)
         infilename = '../derge-kangyur-tags/'+volnumstr+'-tagged.txt'
         print("transforming "+infilename)
         os.makedirs('./output/', exist_ok=True)
+        if volnum in volMappingForExport:
+            print("reordering volume "+str(volnum)+" into "+str(volMappingForExport[volnum]))
+            volnum = volMappingForExport[volnum]
         parse_one_file(infilename, './output/W4CZ5369-I1KG9'+str(volnum+126)+'-0000.xml', volnum, options)
