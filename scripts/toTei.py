@@ -1,8 +1,30 @@
+#!/usr/bin/env python3
+
+# The MIT License (MIT)
+# Copyright (c) 2018 Esukhia
+# 
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+# 
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+# 
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+# EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+# IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+# DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+# OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
+# OR OTHER DEALINGS IN THE SOFTWARE.
+
 import re
 import os
 
-TEI_BEGINNING = """
-<?xml version="1.0" encoding="UTF-8"?>
+TEI_BEGINNING = """<?xml version="1.0" encoding="UTF-8"?>
 <tei:TEI xmlns:tei="http://www.tei-c.org/ns/1.0">
   <tei:teiHeader>
     <tei:fileDesc>
@@ -25,10 +47,9 @@ TEI_BEGINNING = """
   <tei:text>
     <tei:body>
       <tei:div>
-        <tei:p n="1">{title}</tei:p>
-"""
+        <tei:p n="1" data-orig-n="1a">{title}"""
 
-TEI_END = """
+TEI_END = """</tei:p>
       </tei:div>
     </tei:body>
   </tei:text>
@@ -53,6 +74,9 @@ def parse_one_line(line, filelinenum, state, outf, volnum, options):
         ignum = volnum + 126
         header = TEI_BEGINNING.format(title = line, volnum = volnum, ignum = ignum)
         outf.write(header)
+        state['pageseqnum'] = 1
+        state['pagenum'] = 1
+        state['pageside'] = 'a'
         return
     pagelinenum = ''
     endpnumi = line.find(']')
@@ -63,29 +87,37 @@ def parse_one_line(line, filelinenum, state, outf, volnum, options):
     pagenum = -1
     pageside = -1
     linenum = 0
+    isBis = False
     doti = pagelinenum.find('.')
     if doti == -1:
+        pageside = pagelinenum[-1]
+        if pageside not in ['a', 'b']:
+            print("error on line "+str(filelinenum)+" cannot understand page side")
+            return
+        pagenumstr = pagelinenum[:-1]
+        if pagelinenum[-2] == 'x':
+            isBis = True
+            pagenumstr = pagelinenum[:-2]
         try:
             pagenum = int(pagelinenum[:-1])
         except ValueError:
             print("error on line "+str(filelinenum)+" cannot convert page to integer")
             return
-        pageside = pagelinenum[-1]
+    else:
+        linenumstr = pagelinenum[doti+1:]
+        pageside = pagelinenum[doti-1]
         if pageside not in ['a', 'b']:
             print("error on line "+str(filelinenum)+" cannot understand page side")
             return
-    else:
         pagenumstr = pagelinenum[0:doti-1]
-        linenumstr = pagelinenum[doti+1:]
+        if pagelinenum[doti-2] == 'x':
+            isBis = True
+            pagenumstr = pagelinenum[0:doti-2]
         try: 
             pagenum = int(pagenumstr)
             linenum = int(linenumstr)
         except ValueError:
             print("error on line "+str(filelinenum)+" cannot convert page / line to integer")
-            return
-        pageside = pagelinenum[doti-1]
-        if pageside not in ['a', 'b']:
-            print("error on line "+str(filelinenum)+" cannot understand page side")
             return
     newpage = False
     if 'pagenum' in state and 'pageside' in state:
@@ -99,6 +131,8 @@ def parse_one_line(line, filelinenum, state, outf, volnum, options):
             print("error on line "+str(filelinenum)+" leap in page sides")
         if oldpagenum != pagenum or oldpageside != pageside:
             newpage = True
+    if newpage:
+        state['pageseqnum'] += 1
     state['pagenum'] = pagenum
     state['pageside'] = pageside
     if 'linenum' in state and linenum != 0:
@@ -118,7 +152,7 @@ def parse_one_line(line, filelinenum, state, outf, volnum, options):
         if text.find('(') != -1 or text.find(')') != -1:
             print("error on line "+str(filelinenum)+", spurious parenthesis")
     if newpage:
-        outf.write('</tei:p>\n        <tei:p n="'+str(pagenum)+pageside+'">')
+        outf.write('</tei:p>\n        <tei:p n="'+str(state['pageseqnum'])+'" data-orig-n="'+pagelinenum+'">')
     if text != '':
         outf.write('<tei:milestone unit="line" n="'+str(linenum)+'"/>'+text)
 
@@ -139,7 +173,7 @@ if __name__ == '__main__':
         "fix_errors": False,
         "keep_errors_indications": False
     }
-    for volnum in range(1, 103):
+    for volnum in range(1, 102):
         volnumstr = '{0:03d}'.format(volnum)
         infilename = '../derge-kangyur-tags/'+volnumstr+'-tagged.txt'
         print("transforming "+infilename)
