@@ -175,12 +175,13 @@ if __name__ == '__main__':
     }
     #parse_one_file('../derge-kangyur-tags/102-tagged.txt', '/tmp/test.xml', 1, options)
     volMappingForExport = {100: 101, 101: 102, 102: 100}
+    os.makedirs('./output/', exist_ok=True)
     for volnum in range(1, 103):
         volnumstr = '{0:03d}'.format(volnum)
         infilename = '../derge-kangyur-tags/'+volnumstr+'-tagged.txt'
         print("transforming "+infilename)
-        os.makedirs('./output/', exist_ok=True)
         if volnum in volMappingForExport:
             print("reordering volume "+str(volnum)+" into "+str(volMappingForExport[volnum]))
             volnum = volMappingForExport[volnum]
-        parse_one_file(infilename, './output/W4CZ5369-I1KG9'+str(volnum+126)+'-0000.xml', volnum, options)
+        os.makedirs('./output/W4CZ5369-I1KG9'+str(volnum+126), exist_ok=True)
+        parse_one_file(infilename, './output/UT4CZ5369-I1KG9'+str(volnum+126)+'/UT4CZ5369-I1KG9'+str(volnum+126)+'-0000.xml', volnum, options)
