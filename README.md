@@ -63,8 +63,7 @@ The files are on Github hoping they'll improve, don't hesitate to signal errors 
 
 Use the following statemnent or the [bibtex](https://github.com/Esukhia/derge-kangyur/blob/master/derge-kangyur.bib) file.
     
-     ཆོས་ཀྱི་འབྱུང་གནས། [18th cent.], བཀའ་འགྱུར་སྡེ་དགེ་པར་མ།, input by Esukhia (2012-2018), https://github.com/Esukhia/derge-kangyur
-
+     ཆོས་ཀྱི་འབྱུང་གནས། [1721–31], བཀའ་འགྱུར་སྡེ་དགེ་པར་མ།, input by Esukhia (2012-2018), https://github.com/Esukhia/derge-kangyur
 
 # License
 
