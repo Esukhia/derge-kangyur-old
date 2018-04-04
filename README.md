@@ -49,7 +49,7 @@ Each physical volume is one file. We follow the volume order of the Parphud edit
 
 ## Completion status
 
-All volumes should be complete except vol 102 in which 53 pages are missing (starting from [this image](https://www.tbrc.org/browser/ImageService?work=W4CZ5369&igroup=I1KG9226&image=890&first=1&last=943&fetchimg=yes)).
+The catalog, volume 103, wasn't digitized as part of this project since it isn't Buddha's words and probably won't be translated by 84,000. Esukhia is hoping to prepare it towards the end of 2018.
 
 ## TEI Export
 
@@ -58,6 +58,13 @@ You can find a script in the `scripts/` directory to validate the files and expo
 # Feedback
 
 The files are on Github hoping they'll improve, don't hesitate to signal errors with a pull request!
+
+# Citation
+
+Use the following statemnent or the [bibtext](https://github.com/Esukhia/derge-kangyur/blob/master/derge-kangyur.bib).
+    
+     ཆོས་ཀྱི་འབྱུང་གནས། [18th cent.], བཀའ་འགྱུར་སྡེ་དགེ་པར་མ།, TBRC W4CZ5369, https://github.com/Esukhia/derge-kangyur
+
 
 # License
 
