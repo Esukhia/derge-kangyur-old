@@ -12,6 +12,15 @@ For more information on the workflow please refer to:
 * [Project Descrition](https://docs.google.com/document/d/17RGGczT9bZl5Hoy7Z6Avo-xympw6eFDeHlecrdVadkM/edit?usp=sharing)
 * [Compared-Proofreading Workflow](https://docs.google.com/document/d/1BobLBqSRvyOCissiYx9kCprbJsU5YDFpKf0NzPkX_Aw/edit?usp=sharing)
 
+## Sources
+
+After comparing the various unicode datasets, the team compared the resulting digital kangyur word by word with the LOC scans but had to fall back to the edition printed by the Karmapa for missing pages or unreadable passages. The Karmapa edition wasn't used as the a main source because it was retouched with marker pens before printing in Delhi.
+
+LOC scan:
+[![image](https://user-images.githubusercontent.com/17675331/38198418-567be450-36bf-11e8-95d4-f2f7a087878a.png)](https://www.tbrc.org/browser/ImageService?work=W4CZ5369&igroup=I1KG9226&image=901&first=1&last=943&fetchimg=yes)
+Karmapa edition:
+[![image](https://user-images.githubusercontent.com/17675331/38198496-a61e22f2-36bf-11e8-8750-a40842c34643.png)](https://www.tbrc.org/browser/ImageService?work=W22084&igroup=0987&image=900&first=1&last=944&fetchimg=yes)
+
 ## Format
 
 The texts contain the following structural markup at beginning of lines (except the first one):
