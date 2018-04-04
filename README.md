@@ -14,7 +14,7 @@ For more information on the workflow please refer to:
 
 ## Sources
 
-After comparing the various unicode datasets, the team compared the resulting digital kangyur word by word with the LOC scans but had to fall back to the edition printed by the Karmapa for missing pages or unreadable passages. The Karmapa edition wasn't used as the a main source because it was retouched with marker pens before printing in Delhi.
+After comparing the various unicode datasets, the team compared the resulting digital kangyur word by word with the [LOC scans](https://www.tbrc.org/#!rid=W4CZ5369) but had to fall back to the [edition printed by the 16th Karmapa](https://www.tbrc.org/#!rid=W22084) for missing pages or unreadable passages. The Karmapa edition wasn't used as the a main source because it was retouched with marker pens before printing in Delhi.
 
 LOC scan:
 [![image](https://user-images.githubusercontent.com/17675331/38198418-567be450-36bf-11e8-95d4-f2f7a087878a.png)](https://www.tbrc.org/browser/ImageService?work=W4CZ5369&igroup=I1KG9226&image=901&first=1&last=943&fetchimg=yes)
@@ -61,7 +61,7 @@ The files are on Github hoping they'll improve, don't hesitate to signal errors 
 
 # Citation
 
-Use the following statemnent or the [bibtext](https://github.com/Esukhia/derge-kangyur/blob/master/derge-kangyur.bib).
+Use the following statemnent or the [bibtext](https://github.com/Esukhia/derge-kangyur/blob/master/derge-kangyur.bib) file.
     
      ཆོས་ཀྱི་འབྱུང་གནས། [18th cent.], བཀའ་འགྱུར་སྡེ་དགེ་པར་མ།, TBRC W4CZ5369, https://github.com/Esukhia/derge-kangyur
 
