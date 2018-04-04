@@ -59,11 +59,11 @@ You can find a script in the `scripts/` directory to validate the files and expo
 
 The files are on Github hoping they'll improve, don't hesitate to signal errors with a pull request!
 
-# Citation
+# How to cite
 
-Use the following statemnent or the [bibtext](https://github.com/Esukhia/derge-kangyur/blob/master/derge-kangyur.bib) file.
+Use the following statemnent or the [bibtex](https://github.com/Esukhia/derge-kangyur/blob/master/derge-kangyur.bib) file.
     
-     ཆོས་ཀྱི་འབྱུང་གནས། [18th cent.], བཀའ་འགྱུར་སྡེ་དགེ་པར་མ།, TBRC W4CZ5369, https://github.com/Esukhia/derge-kangyur
+     ཆོས་ཀྱི་འབྱུང་གནས། [18th cent.], བཀའ་འགྱུར་སྡེ་དགེ་པར་མ།, input by Esukhia (2012-2018), https://github.com/Esukhia/derge-kangyur
 
 
 # License
