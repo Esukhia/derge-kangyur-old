@@ -183,5 +183,5 @@ if __name__ == '__main__':
         if volnum in volMappingForExport:
             print("reordering volume "+str(volnum)+" into "+str(volMappingForExport[volnum]))
             volnum = volMappingForExport[volnum]
-        os.makedirs('./output/W4CZ5369-I1KG9'+str(volnum+126), exist_ok=True)
+        os.makedirs('./output/UT4CZ5369-I1KG9'+str(volnum+126), exist_ok=True)
         parse_one_file(infilename, './output/UT4CZ5369-I1KG9'+str(volnum+126)+'/UT4CZ5369-I1KG9'+str(volnum+126)+'-0000.xml', volnum, options)
