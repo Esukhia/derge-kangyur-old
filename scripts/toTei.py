@@ -143,6 +143,17 @@ def parse_one_line(line, filelinenum, state, outf, volnum, options):
     text = ''
     if len(line) > endpnumi+1:
         text = line[endpnumi+1:]
+        if '{T' in text:
+            if not '}' in text:
+                print("error on line "+str(filelinenum)+", missing closing }")
+            closeidx = text.find('}')
+            if not text.startswith('༄༅༅། །', closeidx+1):
+                rightcontext = text[closeidx+1:closeidx+5]
+                print("warning on line "+str(filelinenum)+" possible wrong beginning of text: \""+rightcontext+"\" should be \"༄༅༅། །\"")
+            openidx = text.find('{')
+            tohoku = text[openidx+2:closeidx]
+            tohokustr = '<tei:milestone unit="text" toh="'+tohoku+'"/>'
+            text = text[:openidx]+tohokustr+text[closeidx+1:]
         if 'keep_errors_indications' not in options or not options['keep_errors_indications']:
             text = text.replace('[', '').replace(']', '')
         if 'fix_errors' not in options or not options['fix_errors']:
@@ -162,6 +173,8 @@ def parse_one_file(infilename, outfilename, volnum, options):
             state = {}
             linenum = 1
             for line in inf:
+                if linenum == 1:
+                    line = line[1:] # remove BOM
                 # [:-1] to remove final line break
                 parse_one_line(line[:-1], linenum, state, outf, volnum, options)
                 linenum += 1
