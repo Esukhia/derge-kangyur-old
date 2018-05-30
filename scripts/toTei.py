@@ -143,6 +143,7 @@ def parse_one_line(line, filelinenum, state, outf, volnum, options):
     text = ''
     if len(line) > endpnumi+1:
         text = line[endpnumi+1:]
+        text = text.replace('&', '')
         if '{T' in text:
             if not '}' in text:
                 print("error on line "+str(filelinenum)+", missing closing }")
