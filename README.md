@@ -82,7 +82,12 @@ Use the following statemnent or the [bibtex](https://github.com/Esukhia/derge-ka
 - spacing error on vol 64, `[247a.7]` (ག།ག)
 - spacing error on vol 68, `[14a.3]` (་ཛ་ཀ།ན་མ)
 - spacings errors on vol 81, look for `ག།བ`, `ཀ།ཨ`, `ཀ།ས`
-- vol 89, line [14b.7] : "[ཨོཾ་ཀྡིཾa྅།]"
+- volume 77, a blank page is present around page 20 and another one around page 211
+- volume 86, [this image](https://www.tbrc.org/browser/ImageService?work=W4CZ5369&igroup=I1KG9212&image=241&first=1&last=643&fetchimg=yes) has number 119 but corresponds to 120 in the unicode (warning: [this image](https://www.tbrc.org/browser/ImageService?work=W4CZ5369&igroup=I1KG9212&image=524&first=1&last=643&fetchimg=yes) has number 261 but is also 261 in the unicode so there is probably another compensating shift inbetween)
+- vol 93: [this image](https://www.tbrc.org/browser/ImageService?work=W4CZ5369&igroup=I1KG9219&image=405&first=1&last=612&fetchimg=yes) has number 205 but corresponds to 204 in the unicode
+- vol 100 (unicode) [this image](https://www.tbrc.org/browser/ImageService?work=W4CZ5369&igroup=I1KG9227&image=115&first=1&last=566&fetchimg=yes) has number 57 but corresponds to number 56 in the unicode
+
+
 
 # License
 
