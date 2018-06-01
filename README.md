@@ -74,8 +74,11 @@ Use the following statemnent or the [bibtex](https://github.com/Esukhia/derge-ka
 - spacing error on vol 64, `[247a.7]` (ག།ག)
 - spacing error on vol 68, `[14a.3]` (་ཛ་ཀ།ན་མ)
 - spacings errors on vol 81, look for `ག།བ`, `ཀ།ཨ`, `ཀ།ས`
-- check T533-T541, T663, T664, T674, T675
 - vol 89, line [14b.7] : "[ཨོཾ་ཀྡིཾa྅།]"
+- vol 77, [21b.1] is in fact [22b.1]
+- vol 90 check page numbers (of toh 558)
+- vol 101, check page numbers (of toh 849)
+- vol 48, is [274a.1] not [275a.1]?
 
 # License
 
