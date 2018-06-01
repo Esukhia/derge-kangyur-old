@@ -74,7 +74,8 @@ Use the following statemnent or the [bibtex](https://github.com/Esukhia/derge-ka
 - spacing error on vol 64, `[247a.7]` (ག།ག)
 - spacing error on vol 68, `[14a.3]` (་ཛ་ཀ།ན་མ)
 - spacings errors on vol 81, look for `ག།བ`, `ཀ།ཨ`, `ཀ།ས`
-- check T533-T541
+- check T533-T541, T663, T664, T674, T675
+- vol 89, line [14b.7] : "[ཨོཾ་ཀྡིཾa྅།]"
 
 # License
 
