@@ -50,6 +50,14 @@ The end of lines sometimes are preceded by a space character (when they end with
 
 Each physical volume is one file. We follow the volume order of the Parphud edition ; in the LoC edition, the main difference is that vol. 102 (of Parphud) is before vol. 100 (of Parphud).
 
+## Double page numberings
+
+Some page have duplicate numbers, this is the case of:
+- vol. 48, p. 210/211 (indicated as ང་ ཉིས་བརྒྱ་ བཅུ་ བཅུ་གཅིག་)
+- vol. 90, p. 62/63
+- vol. 100, the pages are: 55b (གཟུངས་བསྡུས་), 56ab (ང་དྲུག་ གཟུངས་བསྡུས་), 57ab (ང་བདུན་ གཟུངས་བསྡུས་), 58a (ང་བརྒྱད་)
+
+
 ## Completion status
 
 The catalog, volume 103, wasn't digitized as part of this project since it isn't Buddha's words and probably won't be translated by 84,000. Esukhia is hoping to prepare it towards the end of 2018.
@@ -75,10 +83,6 @@ Use the following statemnent or the [bibtex](https://github.com/Esukhia/derge-ka
 - spacing error on vol 68, `[14a.3]` (་ཛ་ཀ།ན་མ)
 - spacings errors on vol 81, look for `ག།བ`, `ཀ།ཨ`, `ཀ།ས`
 - vol 89, line [14b.7] : "[ཨོཾ་ཀྡིཾa྅།]"
-- vol 77, [21b.1] is in fact [22b.1]
-- vol 90 check page numbers (of toh 558)
-- vol 101, check page numbers (of toh 849)
-- vol 48, is [274a.1] not [275a.1]?
 
 # License
 
