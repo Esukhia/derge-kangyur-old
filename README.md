@@ -52,10 +52,10 @@ Each physical volume is one file. We follow the volume order of the Parphud edit
 
 ## Double page numberings
 
-Some page have duplicate numbers, this is the case of:
-- vol. 48, p. 210/211 (indicated as ང་ ཉིས་བརྒྱ་ བཅུ་ བཅུ་གཅིག་)
-- vol. 90, p. 62/63
-- vol. 100, the pages are: 55b (གཟུངས་བསྡུས་), 56ab (ང་དྲུག་ གཟུངས་བསྡུས་), 57ab (ང་བདུན་ གཟུངས་བསྡུས་), 58a (ང་བརྒྱད་)
+Some page have two numbers, this is the case of:
+- vol. 48, p. 210/211 (indicated as ང་ ཉིས་བརྒྱ་ བཅུ་ བཅུ་གཅིག་ on 210a)
+- vol. 90, p. 62/63 
+- vol. 100, p. 56/57 (indicated as ང་དྲུག་ གཟུངས་བསྡུས་ on 56a and ང་བདུན་ གཟུངས་བསྡུས་ on 56b)
 
 
 ## Completion status
