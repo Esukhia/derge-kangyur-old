@@ -69,6 +69,11 @@ def parrepl(match, mode, filelinenum):
         print("error on line "+str(filelinenum)+" tsheg not matching in parenthesis")
     return mode == 'first' and first or sec
 
+def tohrepl(match, locstr):
+    toh = match.group(1)
+    #print("found Tohoku "+toh+" on "+locstr)
+    return '<tei:milestone unit="text" toh="'+toh+'"/>'
+
 def parse_one_line(line, filelinenum, state, outf, volnum, options):
     if filelinenum == 1:
         ignum = volnum + 126
@@ -151,10 +156,8 @@ def parse_one_line(line, filelinenum, state, outf, volnum, options):
             if not text.startswith('༄༅༅། །', closeidx+1):
                 rightcontext = text[closeidx+1:closeidx+5]
                 print("warning on line "+str(filelinenum)+" possible wrong beginning of text: \""+rightcontext+"\" should be \"༄༅༅། །\"")
-            openidx = text.find('{')
-            tohoku = text[openidx+2:closeidx]
-            tohokustr = '<tei:milestone unit="text" toh="'+tohoku+'"/>'
-            text = text[:openidx]+tohokustr+text[closeidx+1:]
+            locstr = str(pagenum)+pageside+str(linenum)+" ("+str(volnum)+")"
+            text = re.sub(r"\{T([^}]+)\}", lambda m: tohrepl(m, locstr), text)
         if 'keep_errors_indications' not in options or not options['keep_errors_indications']:
             text = text.replace('[', '').replace(']', '')
         if 'fix_errors' not in options or not options['fix_errors']:
