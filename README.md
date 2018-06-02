@@ -38,7 +38,7 @@ They also contain a few error suggestions noted as example. It is far from an ex
 * **#** signals an unreadable graphical unit
 * **{TX}** signals the beginning of the text with Tohoku catalog number **X**. We use the following conventions:
   * when a text is missing from the Tohoku catalog, we indicate it with the preceding number followed by **a**, ex: **T7**, **T7a**, **T8**
-  * when a text has subindexes, we separate them with a dash, ex: **T841-1**, **T841-2**, etc.
+  * when a text has subindexes, we separate them with a dash, ex: **T841-1**, **T841-2**, etc. The source of the subindexes are 84000, Adarsha and *The Nyingma Edition of the sDe dGe bKa' 'Gyur and bsTan 'Gyur: Research Catalogue and Bibliography*.
 
 The files are UTF16-LE with BOM. `git` doesn't recognize them as text but you can still diff them with the trick exposed [here](https://stackoverflow.com/a/1300928/2560906).
 
