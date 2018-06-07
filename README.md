@@ -60,7 +60,7 @@ Each physical volume is one file. We follow the volume order of the Parphud edit
 - vol. 86, page 261 was skipped (#260 marked as ཉིས་བརྒྱ་དྲུག་ཅུ on 260a and #261 as ཉིས་བརྒྱ་ རེ་གཅིག་ རྒྱུད་འབུམ་ on 260b)
 - vol. 90, page 63 was skipped
 - vol. 93, page 205 was skipped (#204 marked as ཉིས་བརྒྱ་བཞི་ རྒྱུད་འབུམ་ on 204a and #205 as ཉིས་བརྒྱ་ལྔ་ རྒྱུད་འབུམ་ on 204b)
-- vol. 100, page 57 was skipped (#56 marked as ང་དྲུག་ གཟུངས་བསྡུས་ on 56a and #57 as ང་བདུན་ གཟུངས་བསྡུས་ on 56b)
+- vol. 100, page 56b, 57a are blank (#57 is written on 57b)
 
 ## Completion status
 
