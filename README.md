@@ -50,13 +50,17 @@ The end of lines sometimes are preceded by a space character (when they end with
 
 Each physical volume is one file. We follow the volume order of the Parphud edition ; in the LoC edition, the main difference is that vol. 102 (of Parphud) is before vol. 100 (of Parphud).
 
-## Double page numberings
+## Page numbering issues
 
-Some page have two numbers, this is the case of:
-- vol. 48, p. 210/211 (indicated as ང་ ཉིས་བརྒྱ་ བཅུ་ བཅུ་གཅིག་ on 210a)
-- vol. 90, p. 62/63 
-- vol. 100, p. 56/57 (indicated as ང་དྲུག་ གཟུངས་བསྡུས་ on 56a and ང་བདུན་ གཟུངས་བསྡུས་ on 56b)
-
+- vol. 48, page 211 was skipped (both #210 and #211 are written on 210a as ང་ ཉིས་བརྒྱ་ བཅུ་ བཅུ་གཅིག་)
+- vol. 77, page 21b, 22a are blank (#22 is written on 22b)
+- vol. 77, page 150b, 151a are blank (#151 is written on 151b)
+- vol. 77, page 212b, 213a are blank (#213 is written on 213b)
+- vol. 86, page 93 is doubled (marked as གོ་གསུམ་གོང་མ་ on 93a/93b and གོ་གསུམ་འོག་མ་ on 93xa/93xb)
+- vol. 86, page 261 was skipped (#260 marked as ཉིས་བརྒྱ་དྲུག་ཅུ on 260a and #261 as ཉིས་བརྒྱ་ རེ་གཅིག་ རྒྱུད་འབུམ་ on 260b)
+- vol. 90, page 63 was skipped
+- vol. 93, page 205 was skipped (#204 marked as ཉིས་བརྒྱ་བཞི་ རྒྱུད་འབུམ་ on 204a and #205 as ཉིས་བརྒྱ་ལྔ་ རྒྱུད་འབུམ་ on 204b)
+- vol. 100, page 57 was skipped (#56 marked as ང་དྲུག་ གཟུངས་བསྡུས་ on 56a and #57 as ང་བདུན་ གཟུངས་བསྡུས་ on 56b)
 
 ## Completion status
 
@@ -82,9 +86,6 @@ Use the following statemnent or the [bibtex](https://github.com/Esukhia/derge-ka
 - spacing error on vol 64, `[247a.7]` (ག།ག)
 - spacing error on vol 68, `[14a.3]` (་ཛ་ཀ།ན་མ)
 - spacings errors on vol 81, look for `ག།བ`, `ཀ།ཨ`, `ཀ།ས`
-- volume 77, a blank page is present around page 20 and another one around page 211
-- volume 86, [this image](https://www.tbrc.org/browser/ImageService?work=W4CZ5369&igroup=I1KG9212&image=241&first=1&last=643&fetchimg=yes) has number 119 but corresponds to 120 in the unicode (warning: [this image](https://www.tbrc.org/browser/ImageService?work=W4CZ5369&igroup=I1KG9212&image=524&first=1&last=643&fetchimg=yes) has number 261 but is also 261 in the unicode so there is probably another compensating shift inbetween)
-- vol 93: [this image](https://www.tbrc.org/browser/ImageService?work=W4CZ5369&igroup=I1KG9219&image=405&first=1&last=612&fetchimg=yes) has number 205 but corresponds to 204 in the unicode
 - vol 100 (unicode) [this image](https://www.tbrc.org/browser/ImageService?work=W4CZ5369&igroup=I1KG9227&image=115&first=1&last=566&fetchimg=yes) has number 57 but corresponds to number 56 in the unicode
 
 
