@@ -60,7 +60,7 @@ Each physical volume is one file. We follow the volume order of the Parphud edit
 - vol. 86, page 261 was skipped (#260 marked as ཉིས་བརྒྱ་དྲུག་ཅུ on 260a and #261 as ཉིས་བརྒྱ་ རེ་གཅིག་ རྒྱུད་འབུམ་ on 260b)
 - vol. 90, page 63 was skipped
 - vol. 93, page 205 was skipped (#204 marked as ཉིས་བརྒྱ་བཞི་ རྒྱུད་འབུམ་ on 204a and #205 as ཉིས་བརྒྱ་ལྔ་ རྒྱུད་འབུམ་ on 204b)
-- vol. 100, page 56b, 57a are blank (#57 is written on 57b)
+- vol. 100, page 57 was skipped (#56 marked as ང་དྲུག་ གཟུངས་བསྡུས་ on 56a and #57 as ང་བདུན་ གཟུངས་བསྡུས་ on 56b)
 
 ## Completion status
 
@@ -86,8 +86,6 @@ Use the following statemnent or the [bibtex](https://github.com/Esukhia/derge-ka
 - spacing error on vol 64, `[247a.7]` (ག།ག)
 - spacing error on vol 68, `[14a.3]` (་ཛ་ཀ།ན་མ)
 - spacings errors on vol 81, look for `ག།བ`, `ཀ།ཨ`, `ཀ།ས`
-- vol 100 (unicode) [this image](https://www.tbrc.org/browser/ImageService?work=W4CZ5369&igroup=I1KG9227&image=115&first=1&last=566&fetchimg=yes) has number 57 but corresponds to number 56 in the unicode
-
 
 
 # License
