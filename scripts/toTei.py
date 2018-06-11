@@ -71,7 +71,7 @@ def parrepl(match, mode, filelinenum):
 
 def tohrepl(match, locstr):
     toh = match.group(1)
-    #print("found Tohoku "+toh+" on "+locstr)
+    #print("found Tohoku "+toh+" "+locstr)
     return '<tei:milestone unit="text" toh="'+toh+'"/>'
 
 def parse_one_line(line, filelinenum, state, outf, volnum, options):
@@ -172,7 +172,7 @@ def parse_one_line(line, filelinenum, state, outf, volnum, options):
         outf.write('<tei:milestone unit="line" n="'+str(linenum)+'"/>'+text)
 
 def parse_one_file(infilename, outfilename, volnum, options):
-    with open(infilename, 'r', encoding="utf-16le") as inf:
+    with open(infilename, 'r', encoding="utf-8") as inf:
         with open(outfilename, 'w', encoding="utf-8") as outf:
             state = {}
             linenum = 1
