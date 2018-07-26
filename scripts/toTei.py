@@ -62,10 +62,10 @@ def parrepl(match, mode, filelinenum):
     first = match.group(1)
     sec = match.group(2)
     if (len(first) > 0 and len(sec) > 0 and (
-            (first[0] == '་' and sec[0] != '་') or 
-            (sec[0] == '་' and first[0] != '་') or
-            (first[-1] == '་' and sec[-1] != '་') or
-            (sec[-1] == '་' and first[-1] != '་'))):
+            (first[0]== '་' and sec[0]!= '་') or 
+            (sec[0]== '་' and first[0]!= '་') or
+            (first[-1]== '་' and sec[-1]!= '་') or
+            (sec[-1]== '་' and first[-1]!= '་'))):
         print("error on line "+str(filelinenum)+" tsheg not matching in parenthesis")
     return mode == 'first' and first or sec
 
@@ -79,9 +79,9 @@ def parse_one_line(line, filelinenum, state, outf, volnum, options):
         ignum = volnum + 126
         header = TEI_BEGINNING.format(title = line, volnum = volnum, ignum = ignum)
         outf.write(header)
-        state['pageseqnum'] = 1
-        state['pagenum'] = 1
-        state['pageside'] = 'a'
+        state['pageseqnum']= 1
+        state['pagenum']= 1
+        state['pageside']= 'a'
         return
     pagelinenum = ''
     endpnumi = line.find(']')
@@ -100,7 +100,7 @@ def parse_one_line(line, filelinenum, state, outf, volnum, options):
             print("error on line "+str(filelinenum)+" cannot understand page side")
             return
         pagenumstr = pagelinenum[:-1]
-        if pagelinenum[-2] == 'x':
+        if pagelinenum[-2]== 'x':
             isBis = True
             pagenumstr = pagelinenum[:-2]
         try:
@@ -115,7 +115,7 @@ def parse_one_line(line, filelinenum, state, outf, volnum, options):
             print("error on line "+str(filelinenum)+" cannot understand page side")
             return
         pagenumstr = pagelinenum[0:doti-1]
-        if pagelinenum[doti-2] == 'x':
+        if pagelinenum[doti-2]== 'x':
             isBis = True
             pagenumstr = pagelinenum[0:doti-2]
         try: 
@@ -137,14 +137,14 @@ def parse_one_line(line, filelinenum, state, outf, volnum, options):
         if oldpagenum != pagenum or oldpageside != pageside:
             newpage = True
     if newpage:
-        state['pageseqnum'] += 1
-    state['pagenum'] = pagenum
-    state['pageside'] = pageside
+        state['pageseqnum']+= 1
+    state['pagenum']= pagenum
+    state['pageside']= pageside
     if 'linenum' in state and linenum != 0:
         oldlinenum = state['linenum']
         if oldlinenum != linenum and oldlinenum != linenum-1:
             print("error on line "+str(filelinenum)+" leap in line numbers from "+str(oldlinenum)+" to "+str(linenum))
-    state['linenum'] = linenum
+    state['linenum']= linenum
     text = ''
     if len(line) > endpnumi+1:
         text = line[endpnumi+1:]
@@ -178,8 +178,8 @@ def parse_one_file(infilename, outfilename, volnum, options):
             linenum = 1
             for line in inf:
                 if linenum == 1:
-                    line = line[1:] # remove BOM
-                # [:-1] to remove final line break
+                    line = line[1:]# remove BOM
+                # [:-1]to remove final line break
                 parse_one_line(line[:-1], linenum, state, outf, volnum, options)
                 linenum += 1
             outf.write(TEI_END)
