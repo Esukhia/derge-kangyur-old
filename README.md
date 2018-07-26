@@ -78,7 +78,7 @@ The files are on Github hoping they'll improve, don't hesitate to signal errors 
 
 Use the following statemnent or the [bibtex](https://github.com/Esukhia/derge-kangyur/blob/master/derge-kangyur.bib) file.
     
-     ཆོས་ཀྱི་འབྱུང་གནས། [1721–31], བཀའ་འགྱུར་སྡེ་དགེ་པར་མ།, input by Esukhia (2012-2018), https://github.com/Esukhia/derge-kangyur
+     ཆོས་ཀྱི་འབྱུང་གནས། [1721–31], བཀའ་འགྱུར་སྡེ་དགེ་པར་མ།, Etexts from THL, BDRC OCR, ACIP, and Adarsha combined and further proofread by Esukhia, 2012-2018, https://github.com/Esukhia/derge-kangyur
 
 # TODO
 - probable error on vol 3 `[26b.4]` (བ།པ།)
