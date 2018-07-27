@@ -2,11 +2,11 @@
 
 Welcome to the working repository of the ongoing 2014-2018 Esukhia-Barom proofreading project!
 
-The Digital Derge Kangyur you'll find on our repository is based on the UVA-SOAS 2013 eKangyur and is undergoing many changes, so use at your own risk!
+The Digital Derge Kangyur you'll find on our repository is based on the UVA-SOAS 2013 eKangyur and is currently undergoing many changes -- use at your own risk!
 
-## The THL-SOAS eKangyur
+## The 2013 UVA-SOAS eKangyur
 
-The THL-SOAS 2013 eKangyur was created by diff-proofreading the previous UVA input against BDRC's OCRed etexts, ACIP's etexts, and Adharsha's early etexts; in a 2013 project overviewed by [UVA](http://www.virginia.edu/) and funded by [SOAS](https://www.soas.ac.uk/) and [KF](https://khyentsefoundation.org/) (for [84000](http://84000.co/)). This version is currently published on THL, Adharsha, BDRC, and as part of SOAS's ACTIB corpus.
+The UVA-SOAS 2013 eKangyur was created by diff-proofreading the previous UVA input against BDRC's OCRed etexts, ACIP's etexts, and Adharsha's early etexts; in a 2013 project overviewed by [UVA](http://www.virginia.edu/) and funded by [SOAS](https://www.soas.ac.uk/) and [KF](https://khyentsefoundation.org/) (for [84000](http://84000.co/)). This version is currently published on UVA, Adharsha, BDRC, and as part of SOAS's ACTIB corpus.
 
 It was intended as an exact representation of the Derge Kangyur edition help by the Library of Congress ([available on BDRC](https://www.tbrc.org/#!rid=W4CZ5369)). As an exact representation it preserved the likes of spelling mistakes, carving mistakes, archaic spellings and mistakes caused by wood-block damage.
 
@@ -84,7 +84,7 @@ The files are on Github hoping they'll improve, don't hesitate to signal errors 
 
 Use the following statemnent or the [bibtex](https://github.com/Esukhia/derge-kangyur/blob/master/derge-kangyur.bib) file.
     
-     ཆོས་ཀྱི་འབྱུང་གནས། [1721–31], བཀའ་འགྱུར་སྡེ་དགེ་པར་མ།, Etexts from THL, BDRC OCR, ACIP, and Adarsha combined and further proofread by Esukhia, 2012-2018, https://github.com/Esukhia/derge-kangyur
+     ཆོས་ཀྱི་འབྱུང་གནས། [1721–31], བཀའ་འགྱུར་སྡེ་དགེ་པར་མ།, Etexts from UVA, BDRC OCR, ACIP, and Adarsha combined and further proofread by Esukhia, 2012-2018, https://github.com/Esukhia/derge-kangyur
 
 # TODO
 - probable error on vol 3 `[26b.4]` (བ།པ།)
