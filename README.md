@@ -15,7 +15,7 @@ It was intended as an exact representation of the Derge Kangyur edition help by 
 The current digital version is an attempt at using linguistics and informatics to improve and normalize the digital Kangyur while preserving the spelling of the Derge woodblocks.
 
 For more information on the workflow please refer to:
-* [Project Descrition](https://docs.google.com/document/d/17RGGczT9bZl5Hoy7Z6Avo-xympw6eFDeHlecrdVadkM/edit?usp=sharing)
+* [Project Description](https://docs.google.com/document/d/17RGGczT9bZl5Hoy7Z6Avo-xympw6eFDeHlecrdVadkM/edit?usp=sharing)
 * [Compared-Proofreading Workflow](https://docs.google.com/document/d/1BobLBqSRvyOCissiYx9kCprbJsU5YDFpKf0NzPkX_Aw/edit?usp=sharing)
 
 ## Image Sources
