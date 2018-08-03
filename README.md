@@ -86,14 +86,6 @@ Use the following statemnent or the [bibtex](https://github.com/Esukhia/derge-ka
     
      ཆོས་ཀྱི་འབྱུང་གནས། [1721–31], བཀའ་འགྱུར་སྡེ་དགེ་པར་མ།, Etexts from UVA, BDRC OCR, ACIP, and Adarsha combined and further proofread by Esukhia, 2012-2018, https://github.com/Esukhia/derge-kangyur
 
-# TODO
-- probable error on vol 3 `[26b.4]` (བ།པ།)
-- probable error on vol 57, `[77b.1]` (བྱེ།ད །སྒ)
-- spacing error on vol 64, `[247a.7]` (ག།ག)
-- spacing error on vol 68, `[14a.3]` (་ཛ་ཀ།ན་མ)
-- spacings errors on vol 81, look for `ག།བ`, `ཀ།ཨ`, `ཀ།ས`
-
-
 # License
 
 This work is a mechanical reproduction of a Public Domain work, and as such is also in the Public Domain.
