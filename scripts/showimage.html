@@ -9,7 +9,17 @@
 
 <input id="page" name="page" placeholder="page (i.e. 1a)"/>
 
-<input type="submit" onclick="printimage()">
+<input id="bttn" type="submit" onclick="printimage()">
+
+<script>
+    var input = document.getElementById("page");
+    input.addEventListener("keyup", function(event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+            document.getElementById("bttn").click();
+        }
+    });
+</script>
 
 <img id="theimage"/>
 </body>
