@@ -56,6 +56,7 @@ Each physical volume is one file. We follow the volume order of the Parphud edit
 
 ## Page numbering issues
 
+- vol. 41, page 33 is duplicated
 - vol. 48, page 211 was skipped (both #210 and #211 are written on 210a as ང་ ཉིས་བརྒྱ་ བཅུ་ བཅུ་གཅིག་)
 - vol. 77, page 21b, 22a are blank (#22 is written on 22b)
 - vol. 77, page 150b, 151a are blank (#151 is written on 151b)
