@@ -46,9 +46,7 @@ They also contain a few error suggestions noted as example. It is far from an ex
   * when a text is missing from the Tohoku catalog, we indicate it with the preceding number followed by **a**, ex: **T7**, **T7a**, **T8**
   * when a text has subindexes, we separate them with a dash, ex: **T841-1**, **T841-2**, etc. The source of the subindexes are 84000, Adarsha and *The Nyingma Edition of the sDe dGe bKa' 'Gyur and bsTan 'Gyur: Research Catalogue and Bibliography*.
 
-The files are UTF16-LE with BOM. `git` doesn't recognize them as text but you can still diff them with the trick exposed [here](https://stackoverflow.com/a/1300928/2560906).
-
-The Unicode is in [NFD](http://unicode.org/reports/tr15/), and oM is rendered as `\u0F68\u0F7C\u0F7E` (`ཨོཾ`) and not `\u0F00` (`ༀ`).
+The files are UTF8 with no BOM. The Unicode is in [NFD](http://unicode.org/reports/tr15/), and oM is rendered as `\u0F68\u0F7C\u0F7E` (`ཨོཾ`) and not `\u0F00` (`ༀ`).
 
 The end of lines sometimes are preceded by a space character (when they end with a shad) so that the result of appending all the lines content is useabletext is correct.
 
