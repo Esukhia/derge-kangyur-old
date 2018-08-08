@@ -1,1 +1,2 @@
 "[^ །]།[^ \x0d།]" - detect issues with shad
+"[^ཀ-ྼ][ཱ-ྼ]" - detect issues with combining marks not combined with a reasonable character
