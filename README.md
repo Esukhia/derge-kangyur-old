@@ -27,6 +27,11 @@ LOC scan:
 Karmapa edition:
 [![image](https://user-images.githubusercontent.com/17675331/38198496-a61e22f2-36bf-11e8-8750-a40842c34643.png)](https://www.tbrc.org/browser/ImageService?work=W22084&igroup=0987&image=900&first=1&last=944&fetchimg=yes)
 
+Other interesting differences appear on:
+- vol. 83, page 190a (end of the 6th line)
+- vol. 75, page 119a (third syllable)
+- vol. 33, page 246b (end of first line)
+
 ## Format
 
 The texts contain the following structural markup at beginning of lines (except the first one):
