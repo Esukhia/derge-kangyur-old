@@ -23,9 +23,9 @@ For more information on the workflow please refer to:
 Each time an issue is found, our team checks the [LOC scans](https://www.tbrc.org/#!rid=W4CZ5369) and sometimes falls back on the [edition printed by the 16th Karmapa](https://www.tbrc.org/#!rid=W22084) in case of missing pages or unreadable passages. The Karmapa edition isn't used as a main source because it was retouched with marker pens before printing in Delhi.
 
 LOC scan:
-[![c](https://user-images.githubusercontent.com/17675331/43968196-f87c94f8-9cf8-11e8-9d46-393c5132d96b.png)](http://iiif.bdrc.io/image/v2/bdr:V4CZ5369_I1KG9159::I1KG91590494.jpg/full/full/0/default.jpg)
+[![c](https://user-images.githubusercontent.com/17675331/43990148-21cbc09a-9d8a-11e8-8543-a9b9bbf17575.png)](http://iiif.bdrc.io/image/v2/bdr:V4CZ5369_I1KG9159::I1KG91590494.jpg/full/full/0/default.jpg)
 Karmapa edition:
-[![d](https://user-images.githubusercontent.com/17675331/43968198-f99e2bf8-9cf8-11e8-8c91-e9d41be9f4f8.png)](http://iiif.bdrc.io/image/v2/bdr:V22084_I0918::09180494.tif/full/full/0/default.jpg)
+[![d](https://user-images.githubusercontent.com/17675331/43990149-22e786d0-9d8a-11e8-9ad3-8557a397232f.png)](http://iiif.bdrc.io/image/v2/bdr:V22084_I0918::09180494.tif/full/full/0/default.jpg)
 
 
 Other interesting differences appear on:
