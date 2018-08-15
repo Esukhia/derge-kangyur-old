@@ -6,5 +6,5 @@
 
 #sed -i 's/ང།/ང་།/g;s/༌/་/g;s/ཱྀ/ཱྀ/g;s/ཱུ/ཱུ/g;s/ༀ/ཨོཾ/g;s/  +/ /g;s/་་+/་/g;s/།་/།/g;s/་ /་/g;s/། ་/། /g;s/ ་/་/g' derge-kangyur-tags/*
 for f in derge-kangyur-tags/*.txt ; do
-	uconv -f x-UTF-16LE-BOM -t UTF-8 "$f" | sed 's/ང།/ང་།/g;s/༌/་/g;s/ཱྀ/ཱྀ/g;s/ཱུ/ཱུ/g;s/ༀ/ཨོཾ/g;s/  +/ /g;s/་་+/་/g;s/།་/།/g;s/་ /་/g;s/། ་/། /g;' | uconv -f UTF-8 -x Any-NFKD -t x-UTF-16LE-BOM | sponge "$f"
+	cat "$f" | sed 's/ང།/ང་།/g;s/༌/་/g;s/ཱྀ/ཱྀ/g;s/ཱུ/ཱུ/g;s/ༀ/ཨོཾ/g;s/  +/ /g;s/་་+/་/g;s/།་/།/g;s/་ /་/g;s/། ་/། /g;' | uconv -f UTF-8 -x Any-NFKD -t UTF-8 | sponge "$f"
 done
