@@ -41,11 +41,17 @@ error_regexps = [
         {"reg": re.compile(r"[^ །\(\[,]།[^ །\]\)༽,]"), "msg": "invalid shad sequence"},
         {"reg": re.compile(r"[^ཀ-ྼ][ཱ-྄྆྇ྍ-ྼ]"), "msg": "invalid unicode combination sequence"},
         {"reg": re.compile(r"[^ༀ-࿚#-~ \[\]\{\}\.]"), "msg": "invalid unicode characters (non-tibetan, non-ascii)"},
-        {"reg": re.compile(r"([ྱུྲཿཾ྄ིྃ])\1"), "msg": "invalid double diactitic sign (shabkyu, gigu, etc.)"},
+        {"reg": re.compile(r"([ྱུྲཿཾ྄ིྃ་ ])\1"), "msg": "invalid double diactitic sign (shabkyu, gigu, etc.) or tshek"},
+        {"reg": re.compile(r"([ཀགཤ།] །|[^ ཀགཤ།]། |[ཀགཤ།]། |[ཀགཤ།][། ]|[༽ཿ་ \]nl])$"), "msg": "invalid end of line", "type": "punctuation", "neg": True},
     ]
+    # opposite of last is sort of ([ཀགཤ།]། |[^ ཀགཤ།]།|[༽ཿ་\]nl] )\n
 
 def check_simple_regexp(line, filelinenum, volnum, options):
     for regex_info in error_regexps:
+        if "neg" in regex_info and regex_info["reg"]:
+            if not regex_info["reg"].search(line):
+                print("error on vol "+str(volnum)+" line "+str(filelinenum)+" "+regex_info["msg"])
+            continue
         for match in regex_info["reg"].finditer(line):
             print("error on vol "+str(volnum)+" line "+str(filelinenum)+" "+regex_info["msg"]+" : ")
             s = match.start()
