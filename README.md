@@ -55,8 +55,8 @@ The files are UTF8 with no BOM, in [NFD](http://unicode.org/reports/tr15/).
 
 Specific encodings:
  - `\u0F68\u0F7C\u0F7E` (`ཨོཾ`) is used instead of `\u0F00` (`ༀ`)
- - `\uOF62\u0FB1` (`རྱ`) is used instead of `\uOF65\u0FB1`
- - `\uOF65\u0FBB` (`ཪྻ`) is used for the most common form instead of `\uOF62\u0FBB`
+ - `\u0F62\u0FB1` (`རྱ`) is used instead of `\u0F65\u0FB1` (`ཪྱ`)
+ - `\u0F65\u0FBB` (`ཪྻ`) is used for the most common form instead of `\u0F62\u0FBB` (`རྻ`)
 
 The end of lines sometimes are preceded by a space character (when they end with a shad) so that the result of appending all the lines content is useabletext is correct.
 
