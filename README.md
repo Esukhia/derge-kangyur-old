@@ -27,7 +27,6 @@ LOC scan:
 Karmapa edition:
 [![d](https://user-images.githubusercontent.com/17675331/43990149-22e786d0-9d8a-11e8-9ad3-8557a397232f.png)](http://iiif.bdrc.io/image/v2/bdr:V22084_I0918::09180494.tif/full/full/0/default.jpg)
 
-
 Other interesting differences appear on:
 - vol. 83, page 190a (end of the 6th line)
 - vol. 75, page 119a (third syllable)
@@ -52,7 +51,14 @@ They also contain a few error suggestions noted as example. It is far from an ex
   * when a text is missing from the Tohoku catalog, we indicate it with the preceding number followed by **a**, ex: **T7**, **T7a**, **T8**
   * when a text has subindexes, we separate them with a dash, ex: **T841-1**, **T841-2**, etc. The source of the subindexes are 84000, Adarsha and *The Nyingma Edition of the sDe dGe bKa' 'Gyur and bsTan 'Gyur: Research Catalogue and Bibliography*.
 
-The files are UTF8 with no BOM. The Unicode is in [NFD](http://unicode.org/reports/tr15/), and oM is rendered as `\u0F68\u0F7C\u0F7E` (`ཨོཾ`) and not `\u0F00` (`ༀ`).
+The files are UTF8 with no BOM, in [NFD](http://unicode.org/reports/tr15/).
+
+Specific encodings:
+ - `\u0F68\u0F7C\u0F7E` (`ཨོཾ`) is used instead of `\u0F00` (`ༀ`)
+ - `\u0F62\u0FB1` (`རྱ`) is used instead of `\u0F6A\u0FB1` (`ཪྱ`)
+ - `\u0F62\u0F99` (`རྙ`) is used instead of `\u0F6A\u0F99` (`ཪྙ`)
+ - `\u0F62\u0FB3` (`རླ`) is used instead of `\u0F6A\u0FB3` (`ཪླ`)
+ - `\u0F6A\u0FBB` (`ཪྻ`) is used for the most common form instead of `\u0F62\u0FBB` (`རྻ`)
 
 The end of lines sometimes are preceded by a space character (when they end with a shad) so that the result of appending all the lines content is useabletext is correct.
 
