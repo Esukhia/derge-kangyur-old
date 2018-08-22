@@ -38,7 +38,7 @@ def parrepl(match, mode, filelinenum):
     return mode == 'first' and first or sec
 
 error_regexps = [
-        {"reg": re.compile(r"([^ །\(\[,]།[^ །\]\)༽,]|(?:[^ངོེིུ]|ང[^ངོེིུ])་།)"), "msg": "invalid shad sequence"},
+        {"reg": re.compile(r"([^ །\(\[,]།[^ །\]\)༽,]|(?:[^ངོེིུ]|ང[^ངོེིུ]|[^ང][ོེིུ])་།|(?:[^ཀགཤ།ོེིུ]|[ཀགཤ][^ཀགཤོེིུ]|[^ཀགཤ][ོེིུ]|[ཀགཤ][ོེིུ]།+)། །།|།།།)"), "msg": "invalid shad sequence"},
         {"reg": re.compile(r"[^ཀ-ྼ][ཱ-྄྆྇ྍ-ྼ]"), "msg": "invalid unicode combination sequence"},
         {"reg": re.compile(r"[^ༀ-࿚#-~ \[\]\{\}\.]"), "msg": "invalid unicode characters (non-Tibetan, non-ascii)"},
         {"reg": re.compile(r"([ྱུྲཿཾ྄ྃྭིྀ་ ])\1"), "msg": "invalid double diactitic sign (shabkyu, gigu, etc.) or tshek"},
@@ -176,10 +176,21 @@ if __name__ == '__main__':
         "keep_errors_indications": False
     }
     # regexp tests:
-    # check_simple_regexps("༄༅། །འདུལ་བ་ཀ་བཞུགས་སོ། བ།ཀ བཀྲ་ཤིས་བདེ་ལེགས།", 1, 1, options)
-    # check_simple_regexps("༄༅། །འདུལ་བ་ཀ་བཞུགས་སོ། །ྫ བཀྲ་ཤིས་བདེ་ལེགས།", 2, 1, options)
-    # check_simple_regexps("༄༅། །འདུལ་བ་ཀ་བཞུགས་སོ། · བཀྲ་ཤིས་བདེ་ལེགས།", 3, 1, options)
-    # check_simple_regexps("༄༅། །འདུལ་བ་ཀ་བཞུགས་སོ། ཀུུ བཀྲ་ཤིས་བདེ་ལེགས།", 4, 1, options)
+    # check_simple_regexp("༄༅། །འདུལ་བ་ཀ་བཞུགས་སོ། བ།ཀ བཀྲ་ཤིས་བདེ་ལེགས།", 1, 1, options)
+    # check_simple_regexp("༄༅། །འདུལ་བ་ཀ་བཞུགས་སོ། །ྫ བཀྲ་ཤིས་བདེ་ལེགས།", 2, 1, options)
+    # check_simple_regexp("༄༅། །འདུལ་བ་ཀ་བཞུགས་སོ། · བཀྲ་ཤིས་བདེ་ལེགས།", 3, 1, options)
+    # check_simple_regexp("༄༅། །འདུལ་བ་ཀ་བཞུགས་སོ། ཀུུ བཀྲ་ཤིས་བདེ་ལེགས།", 4, 1, options)
+    # check_simple_regexp("༄༅། །འདུལ་བ་ཀ་བཞུགས་སོ། འོ། །དེ བཀྲ་ཤིས་བདེ་ལེགསval། ", 4, 1, options)
+    # check_simple_regexp("༄༅། །འདུལ་བ་ཀ་བཞུགས་སོ། ཀ། །།དེ བཀྲ་ཤིས་བདེ་ལེགསval། ", 4, 1, options)
+    # check_simple_regexp("༄༅། །འདུལ་བ་ཀ་བཞུགས་སོ། ཀོ། །།དེ བཀྲ་ཤིས་བདེ་ལེགསval། ", 4, 1, options)
+    # check_simple_regexp("༄༅། །འདུལ་བ་ཀ་བཞུགས་སོ། ཀོ།། །།དེ བཀྲ་ཤིས་བདེ་ལེགསinv། ", 4, 1, options)
+    # check_simple_regexp("༄༅། །འདུལ་བ་ཀ་བཞུགས་སོ། ཀ།། །།དེ བཀྲ་ཤིས་བདེ་ལེགསinv། ", 4, 1, options)
+    # check_simple_regexp("༄༅། །འདུལ་བ་ཀ་བཞུགས་སོ། འོ། །།དེ བཀྲ་ཤིས་བདེ་ལེགསinv། ", 4, 1, options)
+    # check_simple_regexp("༄༅། །འདུལ་བ་ཀ་བཞུགས་སོ། ངེ་། བཀྲ་ཤིས་བདེ་ལེགསval། ", 4, 1, options)
+    # check_simple_regexp("༄༅། །འདུལ་བ་ཀ་བཞུགས་སོ། ང་། བཀྲ་ཤིས་བདེ་ལེགསval། ", 4, 1, options)
+    # check_simple_regexp("༄༅། །འདུལ་བ་ཀ་བཞུགས་སོ། ངང་། བཀྲ་ཤིས་བདེ་ལེགསval། ", 4, 1, options)
+    # check_simple_regexp("༄༅། །འདུལ་བ་ཀ་བཞུགས་སོ། ངས་། བཀྲ་ཤིས་བདེ་ལེགསinv། ", 4, 1, options)
+    # check_simple_regexp("༄༅། །འདུལ་བ་ཀ་བཞུགས་སོ། ངསི་། བཀྲ་ཤིས་བདེ་ལེགསinv། ", 4, 1, options)
     for volnum in range(1, 103):
         volnumstr = '{0:03d}'.format(volnum)
         infilename = '../derge-kangyur-tags/'+volnumstr+'-tagged.txt'
