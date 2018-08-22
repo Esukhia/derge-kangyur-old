@@ -38,7 +38,7 @@ def parrepl(match, mode, filelinenum):
     return mode == 'first' and first or sec
 
 error_regexps = [
-        {"reg": re.compile(r"([^ །\(\[,]།[^ །\]\)༽,]|(?:[^ངོ]|ང[^ངོ])་།)"), "msg": "invalid shad sequence"},
+        {"reg": re.compile(r"([^ །\(\[,]།[^ །\]\)༽,]|(?:[^ངོེིུ]|ང[^ངོེིུ])་།)"), "msg": "invalid shad sequence"},
         {"reg": re.compile(r"[^ཀ-ྼ][ཱ-྄྆྇ྍ-ྼ]"), "msg": "invalid unicode combination sequence"},
         {"reg": re.compile(r"[^ༀ-࿚#-~ \[\]\{\}\.]"), "msg": "invalid unicode characters (non-Tibetan, non-ascii)"},
         {"reg": re.compile(r"([ྱུྲཿཾ྄ྃྭིྀ་ ])\1"), "msg": "invalid double diactitic sign (shabkyu, gigu, etc.) or tshek"},
