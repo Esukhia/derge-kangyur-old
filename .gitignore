@@ -1,5 +1,6 @@
 output/
 scripts/output/
+errors.txt
 
 .DS_Store
 
