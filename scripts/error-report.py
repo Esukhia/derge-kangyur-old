@@ -46,7 +46,7 @@ error_regexps = [
         {"reg": re.compile(r"([ཀགཤ།] །|[^ ཀགཤ།]། |[ཀགཤ།]། |[ཀགཤ།][། ]|[༽ཿ་ \]nl])$"), "msg": "invalid end of line", "type": "punctuation", "neg": True},
         # see https://docs.microsoft.com/en-us/typography/script-development/tibetan#reor
         {"reg": re.compile(r"([ཱ-྇][ྍ-ྼ]|[ི-྄]ཱ|[ྃཾཿ][ཱ-ཽྀ])"), "msg": "invalid character order (vowel before subscript or achung after vowel)", "type": "invalid"},
-        {"reg": re.compile(r"(ཪ[ླྙྲྱཱ-྇ །་]|རྻ)"), "msg": "wrong form of rago used (0F62 vs. 0F65)", "type": "invalid"},
+        {"reg": re.compile(r"(ཪ[ླྙྲྱཱ-྇ །་༼-ྌ]|རྻ)"), "msg": "wrong form of rago used (0F62 vs. 0F65)", "type": "invalid"},
         {"reg": re.compile(r"([ཱེཻོཽ])\1"), "msg": "invalid vowel duplication (use 0F7D and 0F7B when relevant)", "type": "invalid"},
     ]
     # opposite of last is sort of ([ཀགཤ།]། |[^ ཀགཤ།]།|[༽ཿ་\]nl] )\n
