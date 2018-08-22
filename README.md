@@ -51,16 +51,31 @@ They also contain a few error suggestions noted as example. It is far from an ex
   * when a text is missing from the Tohoku catalog, we indicate it with the preceding number followed by **a**, ex: **T7**, **T7a**, **T8**
   * when a text has subindexes, we separate them with a dash, ex: **T841-1**, **T841-2**, etc. The source of the subindexes are 84000, Adarsha and *The Nyingma Edition of the sDe dGe bKa' 'Gyur and bsTan 'Gyur: Research Catalogue and Bibliography*.
 
-The files are UTF8 with no BOM, in [NFD](http://unicode.org/reports/tr15/).
+The end of lines sometimes are preceded by a space character (when they end with a shad) so that the result of appending all the lines content is useabletext is correct.
 
-Specific encodings:
+## Encoding
+
+### Unicode
+
+The files are UTF8 with no BOM, in [NFD](http://unicode.org/reports/tr15/). The following representations are used:
+
  - `\u0F68\u0F7C\u0F7E` (`ཨོཾ`) is used instead of `\u0F00` (`ༀ`)
  - `\u0F62\u0FB1` (`རྱ`) is used instead of `\u0F6A\u0FB1` (`ཪྱ`)
  - `\u0F62\u0F99` (`རྙ`) is used instead of `\u0F6A\u0F99` (`ཪྙ`)
  - `\u0F62\u0FB3` (`རླ`) is used instead of `\u0F6A\u0FB3` (`ཪླ`)
  - `\u0F6A\u0FBB` (`ཪྻ`) is used for the most common form instead of `\u0F62\u0FBB` (`རྻ`)
 
-The end of lines sometimes are preceded by a space character (when they end with a shad) so that the result of appending all the lines content is useabletext is correct.
+### Punctuation
+
+We apply the following normalization without keeping the original in parenthesis:
+ - `༄༅། །` at beginning of pages are removed (, )they should be straightforward to reinsert
+ - `༄༅། །` are also removed at beginning of volumes when the beginning of a volume is in the middle of a text
+ - `༑` are replaced by `།`
+
+We keep the original punctuation in parenthesis (see above) but normalize the following:
+ - `༄༅། །` are added at beginning of texts when they're missing
+ - `ག། །།` instead of `ག།། །།`, or with any character conforming `[གཀཤ][ོེིུ]?` instead of ག
+ - a tshek is inserted between characters conforming `ང[ོེིུ]?` and `།`
 
 ## Volume numbers
 
