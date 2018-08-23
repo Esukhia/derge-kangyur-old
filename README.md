@@ -34,7 +34,7 @@ Other interesting differences appear on:
 
 ## Format
 
-The texts contain the following structural markup at beginning of lines (except the first one):
+The texts contain the following structural markup at beginning of lines:
 
 * **[1b]** is _[Page and folio markers]_
 * **[1b.1]** is _[Page and folio markers.line number]_
