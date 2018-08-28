@@ -69,10 +69,13 @@ def tohrepl(match):
 
 def parse_one_line(line, filelinenum, state, outf, volnum, options):
     if filelinenum == 1:
+        return
+    if filelinenum == 2:
         ignum = volnum + 126
-        header = TEI_BEGINNING.format(title = line, volnum = volnum, ignum = ignum)
+        header = TEI_BEGINNING.format(title = line[6:], volnum = volnum, ignum = ignum)
         outf.write(header)
         state['pageseqnum']= 1
+        state['pagestr'] = "1a"
         return
     pagelinenum = ''
     endpnumi = line.find(']')
