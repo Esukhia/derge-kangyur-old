@@ -38,13 +38,13 @@ def parrepl(match, mode, filelinenum):
     return mode == 'first' and first or sec
 
 error_regexps = [
-        {"reg": re.compile(r"([^ །\(\[,]།[^ །\]\)༽,]|(?:[^ངོེིུ]|ང[^ངོེིུ]|[^ང][ོེིུ])་།|(?:[^ཀགཤ།ོེིུ]|[ཀགཤ][^ཀགཤོེིུ]|[^ཀགཤ][ོེིུ]|[ཀགཤ][ོེིུ]།+)། །།|།།།)"), "msg": "invalid shad sequence"},
+        {"reg": re.compile(r"([^ །\(\[,]།[^ །\]\)༽,]|(?:[^ངོེིུྃཾ]|ང[^ངོེིུྃཾ]|[^ང][ོེིུྃཾ])་།|(?:[^ཀགཤ།ོེིུྃཾ]|[ཀགཤ][^ཀགཤོེིུྃཾ]|[^ཀགཤ][ོེིུྃཾ]|[ཀགཤ][ོེིུྃཾ]།+)། །།|།།།)"), "msg": "invalid shad sequence"},
         {"reg": re.compile(r"[^ཀ-ྼ][ཱ-྄྆྇ྍ-ྼ]"), "msg": "invalid unicode combination sequence"},
         {"reg": re.compile(r"[^ༀ-࿚#-~ \[\]\{\}\.]"), "msg": "invalid unicode characters (non-Tibetan, non-ascii)"},
         {"reg": re.compile(r"([ྱུྲཿཾ྄ྃྭིྀ་ ])\1"), "msg": "invalid double diactitic sign (shabkyu, gigu, etc.) or tshek"},
         {"reg": re.compile(r"ཿ་"), "msg": "invalid visarga + tshek", "type": "punctuation"},
         {"reg": re.compile(r"([^༄༅]༅|[^࿓࿔]࿔|[࿔༅][^།༅࿔])"), "msg": "invalid yigo", "type": "punctuation"},
-        {"reg": re.compile(r"[ༀ-༃༆-༊༎-༟]"), "msg": "suspicious Tibetan character"},
+        {"reg": re.compile(r"[ༀ-༃༆-༊༎-༟ྰ]"), "msg": "suspicious Tibetan character"},
         {"reg": re.compile(r"([ཀགཤ།] །|[^ ཀགཤ།]། |[ཀགཤ།]། |[ཀགཤ།][། ]|[༽ཿ་ \]nl])$"), "msg": "invalid end of line", "type": "punctuation", "neg": True},
         # see https://docs.microsoft.com/en-us/typography/script-development/tibetan#reor
         {"reg": re.compile(r"([ཱ-྇][ྍ-ྼ]|[ི-྄]ཱ|[ྃཾཿ][ཱ-ཽྀ])"), "msg": "invalid character order (vowel before subscript or achung after vowel)", "type": "invalid"},
