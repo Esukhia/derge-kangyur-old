@@ -26,7 +26,7 @@ import os
 
 PAREN_RE = re.compile(r"\(([^\),]*),([^\),]*)\)")
 
-def parrepl(match, mode, filelinenum):
+def parrepl(match, mode, pagelinenum, filelinenum, volnum, shortfilename):
     first = match.group(1)
     sec = match.group(2)
     if (len(first) > 0 and len(sec) > 0 and (
@@ -38,15 +38,16 @@ def parrepl(match, mode, filelinenum):
     return mode == 'first' and first or sec
 
 error_regexps = [
-        {"reg": re.compile(r"([^ །\(\[,]།[^ །\]\)༽,]|(?:[^ངོེིུྃཾ]|ང[^ངོེིུྃཾ]|[^ང][ོེིུྃཾ])་།|(?:[^ཀགཤ།ོེིུྃཾ]|[ཀགཤ][^ཀགཤོེིུྃཾ]|[^ཀགཤ][ོེིུྃཾ]|[ཀགཤ][ོེིུྃཾ]།+)། །།|།།།)"), "msg": "invalid shad sequence"},
-        {"reg": re.compile(r"[^ཀ-ྼ][ཱ-྄྆྇ྍ-ྼ]"), "msg": "invalid unicode combination sequence"},
-        {"reg": re.compile(r"[^ༀ-࿚#-~ \[\]\{\}\.]"), "msg": "invalid unicode characters (non-Tibetan, non-ascii)"},
-        {"reg": re.compile(r"([ྱུྲཿཾ྄ྃྭིྀ་ ])\1"), "msg": "invalid double diactitic sign (shabkyu, gigu, etc.) or tshek"},
+        {"reg": re.compile(r"([^ །\(\)\[,]།[^ །\(\]\)༽,]|(?:[^ངོེིུྃཾ]|ང[^ངོེིུྃཾ]|[^ང][ོེིུྃཾ])་།|(?:[^ཀགཤ།ོེིུྃཾ]|[ཀགཤ][^ཀགཤོེིུྃཾ]|[^ཀགཤ][ོེིུྃཾ]|[ཀགཤ][ོེིུྃཾ]།+)། །།|།།།)"), "msg": "invalid shad sequence", "type": "punctuation"},
+        {"reg": re.compile(r"[^ཀ-ྼ][ཱ-྄྆྇ྍ-ྼ]"), "msg": "invalid unicode combination sequence", "type": "invalid"},
+        {"reg": re.compile(r"[^ༀ-࿚#-~ \[\]\{\}\.]"), "msg": "invalid unicode characters (non-Tibetan, non-ascii)", "type": "invalid"},
+        {"reg": re.compile(r"([ྱུྲཿཾ྄ྃྭིྀ་ ])\1"), "msg": "invalid double diactitic sign (shabkyu, gigu, etc.) or tshek", "type": "invalid"},
         {"reg": re.compile(r"ཿ་"), "msg": "invalid visarga + tshek", "type": "punctuation"},
         {"reg": re.compile(r"([^༄༅]༅|[^࿓࿔]࿔|[࿔༅][^།༅࿔])"), "msg": "invalid yigo", "type": "punctuation"},
-        {"reg": re.compile(r"[ༀ-༃༆-༊༎-༟ྰ]"), "msg": "suspicious Tibetan character"},
+        {"reg": re.compile(r"[ༀ-༃༆-༊༎-༟ྰ]"), "msg": "suspicious Tibetan character", "type": "invalid"},
         {"reg": re.compile(r"([ཀགཤ།] །|[^ ཀགཤ།]། |[ཀགཤ།]། |[ཀགཤ།][། ]|[༽ཿ་ \]nl])$"), "msg": "invalid end of line", "type": "punctuation", "neg": True},
         # see https://docs.microsoft.com/en-us/typography/script-development/tibetan#reor
+        # https://docs.microsoft.com/en-us/typography/script-development/use#glyph-reordering
         {"reg": re.compile(r"([ཱ-྇][ྍ-ྼ]|[ི-྄]ཱ|[ྃཾཿ][ཱ-ཽྀ])"), "msg": "invalid character order (vowel before subscript or achung after vowel)", "type": "invalid"},
         {"reg": re.compile(r"(ཪ[ླྙྲྱཱ-྇ །་༼-ྌྉྈ\(\)\[\]]|[^ཏ]ྲ[ྐ-ྫྷྮ-ྻ]|རྻ)"), "msg": "possible wrong form of rago used (0F62 vs. 0F65)", "type": "invalid"},
         {"reg": re.compile(r"([ཱེཻོཽ])\1"), "msg": "invalid vowel duplication (use 0F7D and 0F7B when relevant)", "type": "invalid"},
@@ -54,20 +55,20 @@ error_regexps = [
     ]
     # opposite of last is sort of ([ཀགཤ།]། |[^ ཀགཤ།]།|[༽ཿ་\]nl] )\n
 
-def check_simple_regexp(line, filelinenum, volnum, options):
+def check_simple_regexp(line, pagelinenum, filelinenum, volnum, options, shortfilename):
     for regex_info in error_regexps:
         if "neg" in regex_info and regex_info["reg"]:
             if not regex_info["reg"].search(line):
-                printerror("error on vol "+str(volnum)+" line "+str(filelinenum)+" "+regex_info["msg"])
+                report_error(pagelinenum, filelinenum, volnum, shortfilename, regex_info["type"], regex_info["msg"], "")
             continue
         for match in regex_info["reg"].finditer(line):
-            printerror("error on vol "+str(volnum)+" line "+str(filelinenum)+" "+regex_info["msg"]+" : ")
             s = match.start()
             e = match.end()
-            printerror(line[:s]+"**"+line[s:e]+"**"+line[e:])
+            linewithhighlight = line[:s]+"**"+line[s:e]+"**"+line[e:]
+            report_error(pagelinenum, filelinenum, volnum, shortfilename, regex_info["type"], regex_info["msg"], linewithhighlight)
 
 
-def parse_one_line(line, filelinenum, state, volnum, options):
+def parse_one_line(line, filelinenum, state, volnum, options, shortfilename):
     if filelinenum == 1:
         state['pageseqnum']= 1
         state['pagenum']= 1
@@ -76,7 +77,7 @@ def parse_one_line(line, filelinenum, state, volnum, options):
     pagelinenum = ''
     endpnumi = line.find(']')
     if endpnumi == -1:
-        printerror("error on line "+str(filelinenum)+" cannot find ]")
+        report_error("", filelinenum, volnum, shortfilename, "format", "cannot find \"]\"", "")
         return
     pagelinenum = line[1:endpnumi]
     pagenum = -1
@@ -87,7 +88,7 @@ def parse_one_line(line, filelinenum, state, volnum, options):
     if doti == -1:
         pageside = pagelinenum[-1]
         if pageside not in ['a', 'b']:
-            printerror("error on line "+str(filelinenum)+" cannot understand page side")
+            report_error(pagelinenum, filelinenum, volnum, shortfilename, "format", "cannot understand page side", "")
             return
         pagenumstr = pagelinenum[:-1]
         if pagelinenum[-2]== 'x':
@@ -96,13 +97,13 @@ def parse_one_line(line, filelinenum, state, volnum, options):
         try:
             pagenum = int(pagenumstr)
         except ValueError:
-            printerror("error on line "+str(filelinenum)+" cannot convert page to integer")
+            report_error(pagelinenum, filelinenum, volnum, shortfilename, "format", "cannot understand page side", "")
             return
     else:
         linenumstr = pagelinenum[doti+1:]
         pageside = pagelinenum[doti-1]
         if pageside not in ['a', 'b']:
-            printerror("error on line "+str(filelinenum)+" cannot understand page side")
+            report_error(pagelinenum, filelinenum, volnum, shortfilename, "format", "cannot understand page side", "")
             return
         pagenumstr = pagelinenum[0:doti-1]
         if pagelinenum[doti-2]== 'x':
@@ -112,7 +113,7 @@ def parse_one_line(line, filelinenum, state, volnum, options):
             pagenum = int(pagenumstr)
             linenum = int(linenumstr)
         except ValueError:
-            printerror("error on line "+str(filelinenum)+" cannot convert page / line to integer")
+            report_error(pagelinenum, filelinenum, volnum, shortfilename, "format", "cannot convert page to integer", "")
             return
     newpage = False
     if 'pagenum' in state and 'pageside' in state:
@@ -133,30 +134,31 @@ def parse_one_line(line, filelinenum, state, volnum, options):
     if 'linenum' in state and linenum != 0:
         oldlinenum = state['linenum']
         if oldlinenum != linenum and oldlinenum != linenum-1:
-            printerror("error on line "+str(filelinenum)+" leap in line numbers from "+str(oldlinenum)+" to "+str(linenum))
+            report_error("", filelinenum, volnum, shortfilename, "pagenumbering", "leap in page numbers from "+str(oldpagenum)+" to "+str(pagenum), "")
     state['linenum']= linenum
-    check_simple_regexp(line, filelinenum, volnum, options)
+    check_simple_regexp(line, pagelinenum, filelinenum, volnum, options, shortfilename)
     text = ''
     if len(line) > endpnumi+1:
         text = line[endpnumi+1:]
         if '{T' in text:
             if not '}' in text:
-                printerror("error on line "+str(filelinenum)+", missing closing }")
+                report_error(pagelinenum, filelinenum, volnum, shortfilename, "format", "missing closing \"}\"", "")
+
             closeidx = text.find('}')
-            if not text.startswith('༄༅༅། །', closeidx+1):
+            if not '-' in text and not text.startswith('༄༅༅། །', closeidx+1):
                 rightcontext = text[closeidx+1:closeidx+5]
-                printerror("warning on line "+str(filelinenum)+" possible wrong beginning of text: \""+rightcontext+"\" should be \"༄༅༅། །\"")
+                report_error(pagelinenum, filelinenum, volnum, shortfilename, "punctuation", "possible wrong beginning of text: \""+rightcontext+"\" should be \"༄༅༅། །\"", "")
             locstr = str(pagenum)+pageside+str(linenum)+" ("+str(volnum)+")"
         if 'keep_errors_indications' not in options or not options['keep_errors_indications']:
             text = text.replace('[', '').replace(']', '')
         if 'fix_errors' not in options or not options['fix_errors']:
-            text = re.sub(r"\(([^\),]*),([^\),]*)\)", lambda m: parrepl(m, 'first', filelinenum), text)
+            text = re.sub(r"\(([^\),]*),([^\),]*)\)", lambda m: parrepl(m, 'first', pagelinenum, filelinenum, volnum, shortfilename), text)
         else:
-            text = re.sub(r"\(([^\),]*),([^\),]*)\)", lambda m: parrepl(m, 'second', filelinenum), text)
+            text = re.sub(r"\(([^\),]*),([^\),]*)\)", lambda m: parrepl(m, 'second', pagelinenum, filelinenum, volnum, shortfilename), text)
         if text.find('(') != -1 or text.find(')') != -1:
-            printerror("error on line "+str(filelinenum)+", spurious parenthesis")
+            report_error(pagelinenum, filelinenum, volnum, shortfilename, "format", "spurious parenthesis", "")
 
-def parse_one_file(infilename, volnum, options):
+def parse_one_file(infilename, volnum, options, shortfilename):
     with open(infilename, 'r', encoding="utf-8") as inf:
         state = {}
         linenum = 1
@@ -164,13 +166,18 @@ def parse_one_file(infilename, volnum, options):
             if linenum == 1:
                 line = line[1:]# remove BOM
             # [:-1]to remove final line break
-            parse_one_line(line[:-1], linenum, state, volnum, options)
+            parse_one_line(line[:-1], linenum, state, volnum, options, shortfilename)
             linenum += 1
 
 errfile = open("errors.txt","w")
 
 def printerror(err):
     errfile.write(err+"\n")
+
+def report_error(linestr, filelinenum, volnum, shortfilename, errortype, errorstr, linewithhighlight):
+    printerror(shortfilename+", l. "+str(filelinenum)+" ("+linestr+"): "+errortype+": "+errorstr)
+    if len(linewithhighlight) > 1:
+        printerror("  -> "+linewithhighlight)
 
 if __name__ == '__main__':
     """ Example use """
@@ -198,6 +205,6 @@ if __name__ == '__main__':
         volnumstr = '{0:03d}'.format(volnum)
         infilename = '../derge-kangyur-tags/'+volnumstr+'-tagged.txt'
         #print("checking "+infilename)
-        parse_one_file(infilename, volnum, options)
+        parse_one_file(infilename, volnum, options, volnumstr+'-tagged')
 
 errfile.close()
