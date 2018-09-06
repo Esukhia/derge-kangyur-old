@@ -169,7 +169,7 @@ def parse_one_file(infilename, volnum, options, shortfilename):
             parse_one_line(line[:-1], linenum, state, volnum, options, shortfilename)
             linenum += 1
 
-errfile = open("errors.txt","w")
+errfile = open("errors.txt","w", encoding="utf-8")
 
 def printerror(err):
     errfile.write(err+"\n")
