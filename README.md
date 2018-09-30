@@ -10,7 +10,7 @@ The UVA-SOAS 2013 eKangyur was created by diff-proofreading the previous UVA inp
 
 It was intended as an exact representation of the Derge Kangyur edition help by the Library of Congress ([available on BDRC](https://www.tbrc.org/#!rid=W4CZ5369)). As an exact representation it preserved the likes of spelling mistakes, carving mistakes, archaic spellings and mistakes caused by wood-block damage.
 
-## The Esukhia-Barom revision
+## The Esukhia-Barom annotated edition
 
 The current digital version is an attempt at using linguistics and informatics to improve and normalize the digital Kangyur while preserving the spelling of the Derge woodblocks.
 
