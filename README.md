@@ -64,6 +64,8 @@ The files are UTF8 with no BOM, in [NFD](http://unicode.org/reports/tr15/). The 
  - `\u0F62\u0F99` (`རྙ`) is used instead of `\u0F6A\u0F99` (`ཪྙ`)
  - `\u0F62\u0FB3` (`རླ`) is used instead of `\u0F6A\u0FB3` (`ཪླ`)
  - `\u0F6A\u0FBB` (`ཪྻ`) is used for the most common form instead of `\u0F62\u0FBB` (`རྻ`)
+ - `\u0FB0` is used instead of `\u0F71` in the 3 cases where it precedes yata `\u0FB1`
+ - `\u0F74\u0F72` is used instead of `\u0F72\u0F74` in the few cases where both a shabkyu and a gigu are present
 
 ### Punctuation
 
