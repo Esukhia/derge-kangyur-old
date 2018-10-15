@@ -51,7 +51,7 @@ error_regexps = [
         # https://docs.microsoft.com/en-us/typography/script-development/use#glyph-reordering
         {"reg": re.compile(r"([ཱ-྇][ྍ-ྼ]|[ི-྄]ཱ|[ྃཾཿ][ཱ-ཽྀ])"), "msg": "invalid character order (vowel before subscript or achung after vowel)", "type": "invalid"},
         {"reg": re.compile(r"(ཪ[ླྙྲྱཱ-྇ །་༼-ྌྉྈ\(\)\[\]]|[^ཏ]ྲ[ྐ-ྫྷྮ-ྻ]|རྻ)"), "msg": "possible wrong form of rago used (0F62 vs. 0F65)", "type": "invalid"},
-        {"reg": re.compile(r"([ཱེཻོཽ])\1"), "msg": "invalid vowel duplication (use 0F7D and 0F7B when relevant)", "type": "invalid"},
+        {"reg": re.compile(r"([ྀིེཻོཽུ]{2,}|ཱ{2,})"), "msg": "༺དབྱངས་ཀྱི་སྐྱོན།༻ invalid vowel duplication (use 0F7D and 0F7B when relevant)", "type": "invalid"},
         {"reg": re.compile(r"[ཀྐཏྟཔྤ][ྒྫྡྦ]"), "msg": "possible invalid Sanskrit sandhi", "type": "sanskrit"},
     ]
     # opposite of last is sort of ([ཀགཤ།]། |[^ ཀགཤ།]།|[༽ཿ་\]nl] )\n
