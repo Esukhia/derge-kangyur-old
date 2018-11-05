@@ -108,7 +108,7 @@ You can find a script in the `scripts/` directory to validate the files and expo
 
 In order to export each work in a different file, run:
 
-        cd .scripts/
+        cd scripts/
         python3 export_works.py
 
 The output will be in `scripts/export`.
