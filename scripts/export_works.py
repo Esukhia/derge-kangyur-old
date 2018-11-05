@@ -11,7 +11,6 @@ def extract_lines():
     """
     in_path = Path('../derge-kangyur-tags')
     files = sorted(list(in_path.glob('*.txt')))
-    # files = [in_path / '001_བསྟོད་ཚོགས།_ཀ.txt']
     missing_inc = 1
 
     works = []
@@ -138,9 +137,29 @@ def write_works(works):
         out_file.write_text('\n'.join(lines))
 
 
+def remove_markup(works):
+    out = []
+    for name, work in works:
+        current_work = []
+        for line in work:
+            line = re.sub(r'\[.*?\]', '', line)
+            line = re.sub(r'\{.*?\}', '', line)
+            line = line.replace('#', '')
+            current_work.append(line)
+        out.append((name, current_work))
+    return out
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--clean-content', help='"true" to clean the page and line markup')
+
 if __name__ == '__main__':
+    args = parser.parse_args()
+
     works = extract_lines()
     works = works_in_pages(works)
     works = works_stripped(works)
     flatten_for_output(works)
+    if bool(args.clean_content):
+        works = remove_markup(works)
     write_works(works)
