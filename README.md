@@ -104,6 +104,20 @@ The catalog, volume 103, wasn't digitized as part of this project since it isn't
 
 You can find a script in the `scripts/` directory to validate the files and export into a TEI format that can be ingested by BDRC. Other exports should be straightforward taking this script as a template. Note that it exports the volumes in the LoC order.
 
+## Export works
+
+In order to export each work in a different file, run:
+
+        cd scripts/
+        python3 export_works.py
+
+The output will be in `scripts/export`.
+
+The volume in which the work is found(the filename) is added on two occasions:
+at the beginning of each work and when there is a volume change within a single work.
+
+To get the raw text with no markup, run `python3 export_works.py --clean-content true`.
+
 # Feedback
 
 The files are on Github hoping they'll improve, don't hesitate to signal errors with a pull request!
