@@ -78,7 +78,7 @@
             var volIds = getVolInfo(volume);
             var imageNames = getImageName(volume, imageNum);
             for (var i = 0; i < 3; i++) {
-                var imageUrl = 'http://iiif.bdrc.io/image/v2/' + volIds[i] + '::' + imageNames[i] + '/full/full/0/default.jpg';
+                var imageUrl = 'http://iiif.bdrc.io/' + volIds[i] + '::' + imageNames[i] + '/full/full/0/default.jpg';
                 document.getElementById('theimage' + (i + 1)).src = imageUrl;
             }
         }
