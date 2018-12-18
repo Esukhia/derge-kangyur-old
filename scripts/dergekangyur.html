@@ -78,17 +78,21 @@
             var volIds = getVolInfo(volume);
             var imageNames = getImageName(volume, imageNum);
             for (var i = 0; i < 3; i++) {
-                var imageUrl = 'http://iiif.bdrc.io/image/v2/' + volIds[i] + '::' + imageNames[i] + '/full/full/0/default.jpg';
+                var imageUrl = 'http://iiif.bdrc.io/' + volIds[i] + '::' + imageNames[i] + '/full/full/0/default.jpg';
                 document.getElementById('theimage' + (i + 1)).src = imageUrl;
             }
         }
     </script>
 
-    <img id="theimage1" />
+    <!-- <img id="theimage1"; style='height: 100%; width: 100%; object-fit: contain'/>
+    <img id="theimage2"; style='height: 100%; width: 100%; object-fit: contain'/>
+    <img id="theimage3"; style='height: 100%; width: 100%; object-fit: contain'/> -->
 
-    <img id="theimage2" />
+    <img id="theimage1"/>
+    <img id="theimage2"/>
+    <img id="theimage3"/>
 
-    <img id="theimage3" />
+
 </body>
 
 </html>
