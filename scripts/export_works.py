@@ -1,5 +1,6 @@
 from pathlib import Path
 import re
+import argparse
 
 
 def extract_lines():
@@ -37,6 +38,8 @@ def extract_lines():
                 prev_toh = toh
             else:
                 current_work.append((prefix, line))
+    if not works and prev_toh and current_work:
+        works.append((prev_toh, current_work))
     return works
 
 
@@ -128,7 +131,9 @@ def flatten_for_output(works):
 
 
 def write_works(works):
-    out_path =Path('export')
+    out_path =Path('export/works')
+    if not out_path.parent.is_dir():
+        out_path.parent.mkdir(exist_ok=True)
     if not out_path.is_dir():
         out_path.mkdir(exist_ok=True)
 
